@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Col, Row } from 'react-bootstrap'
-import ReactModal from 'react-modal'
 import RightPanel from './components/RightPanel/RightPanel'
 import Welcome from './components/Welcome'
 import { BoardConnected } from './connected-components'
+import  FadeMessager from './FadeMessager'
 
-ReactModal.setAppElement('#root');
-
-class App extends Component {
+export default class App extends Component {
 
   render () {
     return <div>
+      <FadeMessager/>
       <div>
         <Welcome/>
       </div>
@@ -28,6 +27,4 @@ class App extends Component {
     </div>;
   }
 }
-
-export default App;
 

@@ -10,7 +10,7 @@ const Board = props => <div className="board">
         <Cell className="item"
               item={item}
               itemToBuy={props.itemToBuy}
-              onClick={props.itemToBuy ? () => props.placeItem({ x, y }) : null}
+              onClick={props.itemToBuy ? e => props.placeItem({ x, y, mouseX: e.pageX, mouseY: e.pageY }) : null}
               key={`${x} ${y}`}/>
       )}
     </Row>
