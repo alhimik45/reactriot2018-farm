@@ -1,21 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import {Col, Row} from 'react-bootstrap'
-import ReactModal from 'react-modal'
-import RightPanel from './components/RightPanel'
+import { Col, Row } from 'react-bootstrap'
+import RightPanel from './components/RightPanel/RightPanel'
 import Welcome from './components/Welcome'
 import Trading from './components/Trading'
 import { BoardConnected } from './connected-components'
+import  FadeMessager from './FadeMessager'
 
-ReactModal.setAppElement('#root');
+export default class App extends Component {
 
-class App extends Component {
-
-
-    render() {
+    render () {
         return <div>
+            <FadeMessager/>
             <div>
-                {/*<button onClick={this.handleOpenModal}>Trigger Modal</button>*/}
                 <Welcome/>
             </div>
             <div>
@@ -27,16 +24,10 @@ class App extends Component {
                         <BoardConnected/>
                     </Col>
                     <Col md={4}>
-                        <RightPanel
-                            dollar="15"
-                        />
+                        <RightPanel/>
                     </Col>
                 </Row>
             </div>
         </div>;
     }
 }
-
-
-export default App;
-

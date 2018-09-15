@@ -1,0 +1,30 @@
+.cell-item, .preview {
+    border: 1px aqua dotted;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+}
+
+.cell-item img, .preview img {
+    align-self: center;
+    margin: auto;
+    width: 90px;
+}
+
+.cell-empty-item {
+    background: rgba(20, 250, 20, 0.3);
+}
+
+.cell-empty-item .preview {
+    display: none;
+}
+
+.cell-hover:hover {
+    background: rgba(250, 20, 20, 0.2);
+}
+
+.cell-hover:hover .preview {
+    display: flex;
+    opacity: 0.3;
+}

@@ -2,27 +2,3 @@
     margin-right: 15px;
     margin-left: 15px;
 }
-
-
-.Modal {
-    position: absolute;
-    top: 25vh;
-    left: 25%;
-    width: 50%;
-    height: 50vh;
-    background-color: papayawhip;
-}
-
-.Overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.RightBottom {
-    bottom: 50px;
-    position: absolute;
-    right: 50px;
-}
