@@ -38,11 +38,14 @@ export const game = {
     }),
   },
   effects: (dispatch) => ({
-    async buyItem(payload, state){
-      if(state.game.currencies.$ < Tech[state.game.currentItemToBuy].cost)
+    async buyItem (payload, state) {
+      if (state.game.currencies.$ < Tech[state.game.currentItemToBuy].cost) {
         alert("No money")
-      else
+        dispatch.game.undoSelect()
+      }
+      else {
         dispatch.game.placeItem(payload)
+      }
     }
   })
 }
