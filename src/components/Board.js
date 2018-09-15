@@ -25,8 +25,7 @@ class BoardInner extends Component {
     this.lastLeft = left
     this.lastTop = top
 
-    return
-      <div className="board">
+    return <div className="board">
         <div ref={this.movingObject}
            className="moving-object"
            style={{ position: 'relative', left: left, top: top }}>
