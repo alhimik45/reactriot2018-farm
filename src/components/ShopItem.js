@@ -12,24 +12,10 @@ class ShopItem extends Component {
 
         var data = require('../DataShopItems.js');
 
-        console.log(data.default.Items);
-
-
         this.state = {
-            showModal: false,
             itemList: data.default.Items
         };
 
-        this.handleOpenModal = this.handleOpenModal.bind(this);
-        this.handleCloseModal = this.handleCloseModal.bind(this);
-    }
-
-    handleOpenModal() {
-        this.setState({showModal: true});
-    }
-
-    handleCloseModal() {
-        this.setState({showModal: false});
     }
 
 
@@ -47,31 +33,24 @@ class ShopItem extends Component {
 
 
         return <div>
-            <button onClick={this.handleOpenModal}>Open Shop</button>
-            <ReactModal
-                isOpen={this.state.showModal}
-                contentLabel="onRequestClose Example"
-                onRequestClose={this.handleCloseModal}
-            >
-                <div>
-                    <Row>
-                        <Col md={4}>
-                            Shop
-                        </Col>
-                        <Col md={4}>
+            <Row>
+                <Col md={4}>
+                    <h1>
+                        Shop
+                    </h1>
+                </Col>
+                <Col md={4}>
 
-                        </Col>
-                        <Col md={4}>
+                </Col>
+                <Col md={4}>
 
-                        </Col>
-                        <Col md={12}>
-                            <h3>List:</h3>
-                        </Col>
-                        {actucalItemList}
-                    </Row>
-                </div>
-            </ReactModal>
-        </div>;
+                </Col>
+                <Col md={12}>
+                    <h3>List:</h3>
+                </Col>
+                {actucalItemList}
+            </Row>
+        </div>
     }
 }
 
