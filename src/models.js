@@ -1,3 +1,5 @@
+import { produce } from 'immer'
+
 export const game = {
   state: {
     currencies: {
@@ -6,6 +8,10 @@ export const game = {
     electricity: 12,
     heat: 30
   },
-  reducers: {},
+  reducers: {
+    increaseElectricity: produce((state, increase) => {
+      state.electricity += increase || 0
+    }),
+  },
   effects: (dispatch) => ({})
 }
