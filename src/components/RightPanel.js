@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  DollarsValue,
-  ElectroLine,
-  HeatLine,
-  MegahashValue,
-  ShopButtonConnected
-} from '../connected-components'
+import ShopItem from './ShopItem';
+import { DollarsValue, ElectroLine, HeatLine, MegahashValue, ShopButtonConnected } from '../connected-components'
 
 const RightPanel = props =>
   <div>
@@ -28,6 +23,9 @@ const RightPanel = props =>
       <ShopButtonConnected type="gpu">
         Buy GPU
       </ShopButtonConnected>
+    </div>
+    <div>
+      <ShopItem/>
     </div>
   </div>
 
