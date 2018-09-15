@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import ReactModal from "react-modal";
 import {Line} from 'react-chartjs-2';
+import {DropdownButton, MenuItem, FormControl, FormGroup, InputGroup, Button, Form, ButtonToolbar, ButtonGroup} from "react-bootstrap";
+import Dropdown from 'react-dropdown'
+import './Trading.css'
+import 'react-dropdown/style.css'
+import x from '../img/x.svg'
 
 class Trading extends Component {
     constructor(props) {
@@ -35,9 +40,12 @@ class Trading extends Component {
                 backgroundColor: "blue"
             }],
             options: {
-                responsive: false,
+                responsive: true,
                 events: [],
-            }
+            },
+            selected: {value: "BTC", label: "BTC"},
+            dropdownOptions: ["BTC", "LTC", "ETH", "DASH"],
+            volume: 0,
         };
 
         this.handleOpenTradingModal = this.handleOpenTradingModal.bind(this);
@@ -65,7 +73,7 @@ class Trading extends Component {
             }
             if (needScroll) {
                 newLabels.shift();
-                newLabels.push(parseInt(newLabels[newLabels.length - 1]) + 1);
+                newLabels.push(parseInt(newLabels[newLabels.length - 1], 10) + 1);
             }
             let newState = {
                 ..._this.state,
@@ -76,7 +84,7 @@ class Trading extends Component {
             if (this.refs.chart !== undefined) {
                 this.refs.chart.chartInstance.update()
             }
-        }, 250);
+        }, 1000);
     }
 
     handleOpenTradingModal() {
@@ -84,11 +92,22 @@ class Trading extends Component {
     }
 
     handleCloseTradingModal() {
-        this.setState({showModal: false});
+        this.setState({showModal: false, volume: 0});
     }
 
     getRandomArbitrary(min, max) {
         return Math.random() * (max - min) + min;
+    }
+
+    getSelectedPrice() {
+        let result = this.state.datasets.filter(obj => {
+            return obj.label === this.state.selected.value
+        });
+        if (result.length === 0) {
+            return 0;
+        } else {
+            return result[0].data[result[0].data.length - 1] * this.state.volume;
+        }
     }
 
     render() {
@@ -98,13 +117,27 @@ class Trading extends Component {
                 isOpen={this.state.showModal}
                 contentLabel="onRequestClose Example"
                 onRequestClose={this.handleCloseTradingModal}
-                className="Modal"
+                className="TradingModal"
                 overlayClassName="Overlay"
             >
-                <div>
-                    <Line ref='chart' data={this.state}/>
-                    <button className="RightBottom" onClick={this.handleCloseTradingModal}>close</button>
-                </div>
+                <Line ref='chart' data={this.state}/>
+                <Button className="ExitButton" onClick={this.handleCloseTradingModal}>
+                    <img alt="exit" src={x} />
+                </Button>
+                <Form inline>
+                    <FormGroup className="TradingForm">
+                        <InputGroup className="TenRightMargin">
+                            <FormControl type="text" onChange={(event) => {this.state.volume = event.target.value}}/>
+                            <Dropdown options={this.state.dropdownOptions} onChange={(eventKey) => {this.setState({selected: eventKey})}}  value={this.state.selected} placeholder="Select cryptocurrency" />
+                        </InputGroup>
+                        <InputGroup>
+                            <ButtonToolbar>
+                                <Button className="TenRightMargin">Buy for {this.getSelectedPrice()} USD</Button>
+                                <Button>Sell for {this.getSelectedPrice()} USD</Button>
+                            </ButtonToolbar>
+                        </InputGroup>
+                    </FormGroup>
+                </Form>
             </ReactModal>;
         </div>
     }

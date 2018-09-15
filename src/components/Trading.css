@@ -1,0 +1,30 @@
+.TradingModal {
+    position: absolute;
+    top: 15vh;
+    left: 25%;
+    width: 50%;
+    height: 60vh;
+    background-color: honeydew;
+    border: 3px firebrick solid;
+    border-radius: 15px;
+}
+
+.TradingForm {
+    margin: 10px;
+    width: 100%;
+}
+
+.ExitButton {
+    position: absolute;
+    right: -1%;
+    top: -3%;
+    width: 50px;
+}
+
+.TenRightMargin {
+    margin-right: 10px;
+}
+
+.Dropdown-control {
+    height: calc(2.25rem + 2px);
+}
