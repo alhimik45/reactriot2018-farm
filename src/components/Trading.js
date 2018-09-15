@@ -7,46 +7,46 @@ class Trading extends Component {
         super(props);
         this.state = {
             showModal: false,
-                type: 'line',
-                labels: ['5', '10', '15', '20', '25', '30', '35'],
-                datasets: [{
-                    label: "BTC",
-                    data: [0],
-                    fill: false,
-                    borderColor: "purple",
-                    backgroundColor: "purple"
-                }, {
-                    label: "LTC",
-                    data: [0],
-                    fill: false,
-                    borderColor: "green",
-                    backgroundColor: "green"
-                }, {
-                    label: "ETH",
-                    data: [0],
-                    fill: false,
-                    borderColor: "red",
-                    backgroundColor: "red"
-                }, {
-                    label: "DASH",
-                    data: [0],
-                    fill: false,
-                    borderColor: "blue",
-                    backgroundColor: "blue"
-                }],
-                options: {
-                    responsive: false,
-                    events: [],
-                }
+            type: 'line',
+            labels: ['5', '10', '15', '20', '25', '30', '35'],
+            datasets: [{
+                label: "BTC",
+                data: [0],
+                fill: false,
+                borderColor: "purple",
+                backgroundColor: "purple"
+            }, {
+                label: "LTC",
+                data: [0],
+                fill: false,
+                borderColor: "green",
+                backgroundColor: "green"
+            }, {
+                label: "ETH",
+                data: [0],
+                fill: false,
+                borderColor: "red",
+                backgroundColor: "red"
+            }, {
+                label: "DASH",
+                data: [0],
+                fill: false,
+                borderColor: "blue",
+                backgroundColor: "blue"
+            }],
+            options: {
+                responsive: false,
+                events: [],
+            }
         };
 
         this.handleOpenTradingModal = this.handleOpenTradingModal.bind(this);
         this.handleCloseTradingModal = this.handleCloseTradingModal.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         let _this = this;
-        setInterval(()=> {
+        setInterval(() => {
             let needScroll = false;
             let oldDatasets = _this.state.datasets;
             let newDatasets = [];
@@ -56,18 +56,16 @@ class Trading extends Component {
                     ...set
                 };
                 let newCourse = set.data.length === 0 ? _this.getRandomArbitrary(0, 10) : _this.getRandomArbitrary(0, set.data[set.data.length - 1] + 3);
-                if (newDataset.data.length === 7) {
-                    newDataset.data.length = 0;
+                if (newDataset.data.length === 6) {
+                    newDataset.data.shift();
                     needScroll = true;
                 }
                 newDataset.data.push(newCourse);
                 newDatasets.push(newDataset);
             }
             if (needScroll) {
-                for (let i = 0; i < newLabels.length; i++) {
-                    newLabels[i] = (parseInt(newLabels[i], 10) + newLabels.length * 5).toString();
-                }
-                needScroll = false;
+                newLabels.shift();
+                newLabels.push(parseInt(newLabels[newLabels.length - 1]) + 5);
             }
             let newState = {
                 ..._this.state,
