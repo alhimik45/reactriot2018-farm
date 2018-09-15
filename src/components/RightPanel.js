@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ElectroLine } from '../connected-components'
+import { ElectroLine, HeatLine } from '../connected-components'
 import LineIndicator from './LineIndicator'
 
 const RightPanel = () =>
@@ -14,7 +14,7 @@ const RightPanel = () =>
       <ElectroLine/>
     </div>
     <div>
-      🗲 <LineIndicator count={32}/>
+      <HeatLine/>
     </div>
     <div>
       Text Help
