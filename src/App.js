@@ -14,8 +14,6 @@ const App = () =>
         <Col md={4}>
           <RightPanel
             dollar="15"
-            fire="55"
-            electro="95"
           />
         </Col>
       </Row>
