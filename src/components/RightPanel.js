@@ -1,5 +1,11 @@
 import React from 'react';
-import { BuySquare, DollarsValue, ElectroLine, HeatLine, MegahashValue } from '../connected-components'
+import {
+  DollarsValue,
+  ElectroLine,
+  HeatLine,
+  MegahashValue,
+  ShopButtonConnected
+} from '../connected-components'
 
 const RightPanel = props =>
   <div>
@@ -16,7 +22,8 @@ const RightPanel = props =>
       <HeatLine/>
     </div>
     <div>
-      <BuySquare/>
+      <ShopButtonConnected type="fan"/>
+      <ShopButtonConnected type="motherboard"/>
     </div>
   </div>
 

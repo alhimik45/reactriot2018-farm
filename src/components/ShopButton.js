@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ShopButton = props =>
-  <div onClick={props.buy}>
+  <div onClick={() => props.buy(props.type)}>
     Buy
   </div>
 

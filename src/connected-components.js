@@ -29,8 +29,8 @@ export const MegahashValue = connect(({ game }) => ({
   icon: pick
 }), null)(NumericValue)
 
-export const BuySquare = connect(null, ({ game: { selectToBuy } }) => ({
-  buy: () => selectToBuy(2)
+export const ShopButtonConnected = connect(null, ({ game: { selectToBuy } }) => ({
+  buy: selectToBuy
 }))(ShopButton)
 
 export const BoardConnected = connect(({ game: { currentItemToBuy, grid } }) => ({

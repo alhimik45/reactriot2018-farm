@@ -23,13 +23,11 @@ export const game = {
     increaseElectricity: produce((state, increase) => {
       state.electricity += increase || 0
     }),
-    selectToBuy: produce((state, itemId) => {
-      state.currentItemToBuy = itemId
+    selectToBuy: produce((state, type) => {
+      state.currentItemToBuy = type
     }),
     placeItem: produce((state, { x, y }) => {
-      state.grid[y][x] = {
-        key: `${Math.random()}`
-      }
+      state.grid[y][x] = {type: state.currentItemToBuy}
       state.currentItemToBuy = null;
     }),
   },
