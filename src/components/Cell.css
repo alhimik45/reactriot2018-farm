@@ -1,7 +1,15 @@
 .cell-item {
     border: 1px aqua dotted;
-    width: 75px;
-    height: 75px;
+    width: 62px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+}
+
+.cell-item img {
+    align-self: center;
+    margin: auto;
+    width: 62px;
 }
 
 .cell-empty-item {

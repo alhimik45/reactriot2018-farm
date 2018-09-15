@@ -13,7 +13,7 @@ export const game = {
     currentItemToBuy: null,
     grid: [
       [null, null, null, null, null],
-      [null, { key: "as" }, null, null, null],
+      [null, { type: "fan" }, null, null, null],
       [null, null, null, null, null],
       [null, null, null, null, null],
       [null, null, null, null, null],
