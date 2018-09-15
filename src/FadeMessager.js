@@ -9,7 +9,7 @@ class FadeInOutUp extends Component {
     const fadeInOut = css.keyframes({
       '0%': { top: this.props.top },
       '90%': { top: this.props.top - 20 },
-      '100%': { top: 0 }
+      '100%': { top: -1000 }
     })
     this.animation = css({
       position: 'fixed',
