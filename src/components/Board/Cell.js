@@ -2,10 +2,12 @@ import React from 'react'
 import './Cell.css'
 import { Fan } from './Fan'
 import { Gpu } from './Gpu'
+import { Asic } from './Asic'
 
 let itemSelector = (item) => ({
   universal: <Gpu img={item.img}/>,
-  fan: <Fan/>
+  fan: <Fan img={item.img}/>,
+  asic: <Asic img={item.img}/>
 }[item.type])
 
 export const Cell = props =>
