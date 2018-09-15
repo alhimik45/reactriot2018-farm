@@ -39,13 +39,32 @@ export const game = {
   },
   effects: (dispatch) => ({
     async buyItem (payload, state) {
-      if (state.game.currencies.$ < Tech[state.game.currentItemToBuy].cost) {
-        alert("No money")
+      const itemCost = Tech[state.game.currentItemToBuy].cost
+      if (state.game.currencies.$ < itemCost) {
+        dispatch.fadeMessages.showMessage({ x: payload.mouseX, y: payload.mouseY, text: "No money" })
         dispatch.game.undoSelect()
       }
       else {
         dispatch.game.placeItem(payload)
+        dispatch.fadeMessages.showMessage({ x: payload.mouseX, y: payload.mouseY, text: `- $${itemCost}` })
       }
     }
   })
+}
+
+export const fadeMessages = {
+  state: {
+    messages: []
+  },
+  reducers: {
+    showMessage: produce((state, msg) => {
+      state.messages.push(msg)
+      msg.key = Math.random()
+    }),
+    removeMessage: produce((state, key) => {
+      for (let i = 0; i < state.messages.length; ++i)
+        if (state.messages[i].key === key)
+          state.messages.splice(i, 1)
+    }),
+  }
 }
