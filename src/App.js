@@ -15,7 +15,6 @@ class App extends Component {
     render() {
         return <div>
             <div>
-                {/*<button onClick={this.handleOpenModal}>Trigger Modal</button>*/}
                 <Welcome/>
             </div>
             <div className="littleMargin">
