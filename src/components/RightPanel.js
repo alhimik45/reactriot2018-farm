@@ -1,13 +1,13 @@
 import React from 'react';
-import { ElectroLine, HeatLine } from '../connected-components'
+import { DollarsValue, ElectroLine, HeatLine, MegahashValue } from '../connected-components'
 
 const RightPanel = props =>
   <div>
     <div>
-      $ {props.dollar}
+      <DollarsValue/>
     </div>
     <div>
-      ????
+      <MegahashValue/>
     </div>
     <div>
       <ElectroLine/>
