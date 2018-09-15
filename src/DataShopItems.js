@@ -1,4 +1,4 @@
-DataShopItem = {
+let DataShopItem = {
     Cats: [
         {
             CatName: "1",
@@ -29,4 +29,4 @@ DataShopItem = {
             ]
         },
     ]
-}
+};

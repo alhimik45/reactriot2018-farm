@@ -2,14 +2,45 @@ import React, {Component} from 'react';
 import "./ShopItem.css"
 import {Col, Row} from "react-bootstrap";
 import ReactModal from "react-modal";
+import Item from "./Item"
 
 
+class ShopItem extends Component {
 
-var DataShopItem = {
-    Cats: [
-        {
-            CatName: "1",
+    constructor(props) {
+        super(props);
+        let DataShopItem =
+
+
+            {
             Items: [
+                {
+                    Name: "1.1",
+                    Cost: 9.99,
+                    img: "",
+                    callBack: function () {
+                        alert("srafs");
+                    }
+
+                },
+                {
+                    Name: "2.2",
+                    Cost: 9.99,
+                    img: "",
+                    callBack: function () {
+
+                    }
+
+                },
+                {
+                    Name: "2.2",
+                    Cost: 9.99,
+                    img: "",
+                    callBack: function () {
+
+                    }
+
+                },
                 {
                     Name: "1.1",
                     Cost: 9.99,
@@ -18,12 +49,43 @@ var DataShopItem = {
 
                     }
 
-                }
-            ]
-        },
-        {
-            CatName: "2",
-            Items: [
+                },
+                {
+                    Name: "2.2",
+                    Cost: 9.99,
+                    img: "",
+                    callBack: function () {
+
+                    }
+
+                },
+                {
+                    Name: "2.2",
+                    Cost: 9.99,
+                    img: "",
+                    callBack: function () {
+
+                    }
+
+                },
+                {
+                    Name: "1.1",
+                    Cost: 9.99,
+                    img: "",
+                    callBack: function () {
+
+                    }
+
+                },
+                {
+                    Name: "2.2",
+                    Cost: 9.99,
+                    img: "",
+                    callBack: function () {
+
+                    }
+
+                },
                 {
                     Name: "2.2",
                     Cost: 9.99,
@@ -34,18 +96,10 @@ var DataShopItem = {
 
                 }
             ]
-        },
-    ]
-}
-
-class ShopItem extends Component {
-    constructor(props) {
-        super(props)
+        };
         this.state = {
             showModal: false,
-            itemList: DataShopItem,
-            showItems: DataShopItem,
-            currentCat: 0
+            itemList: DataShopItem
         };
 
         this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -61,16 +115,16 @@ class ShopItem extends Component {
     }
 
 
-
-
     render() {
-        const CatList = this.state.showItems.Cats.map((cat) =>
-            <li className="Shop">
-                <button>
-                    {cat.CatName}
-                </button>
-                ;
-            </li>
+        const actucalItemList = this.state.itemList.Items.map((item) =>
+            <Col md={4}>
+                <Item
+                    name={item.Name}
+                    cost={item.Cost}
+                    img={item.img}
+                    callBack={item.callBack}
+                />
+            </Col>
         );
 
 
@@ -92,10 +146,10 @@ class ShopItem extends Component {
                         <Col md={4}>
 
                         </Col>
-                        <ul className="Shop">
-                            {CatList}
-                        </ul>
-
+                        <Col md={12}>
+                            <h3>List:</h3>
+                        </Col>
+                        {actucalItemList}
                     </Row>
                 </div>
             </ReactModal>
