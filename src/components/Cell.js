@@ -6,4 +6,8 @@ export const Cell = props =>
     <div className="cell-item">
       {props.item.key}
     </div>
-    : <div className="cell-item cell-empty-item">&nbsp;</div>
+    : <div
+      className={`cell-item cell-empty-item ${props.enableHover ? "cell-hover" : ""}`}
+      onClick={props.onClick}>
+      &nbsp;
+    </div>

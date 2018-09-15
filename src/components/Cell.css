@@ -7,3 +7,7 @@
 .cell-empty-item {
     background: rgba(20,250,20, 0.3);
 }
+
+.cell-hover:hover {
+    background: rgba(250,20,20, 0.2);
+}
