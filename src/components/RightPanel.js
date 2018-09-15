@@ -1,10 +1,10 @@
 import React from 'react';
 import { ElectroLine, HeatLine } from '../connected-components'
 
-const RightPanel = () =>
+const RightPanel = props =>
   <div>
     <div>
-      $      
+      $ {props.dollar}
     </div>
     <div>
       ????
