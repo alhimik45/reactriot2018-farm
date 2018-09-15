@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
 import {Col, Row} from 'react-bootstrap'
-import ReactModal from 'react-modal';
-import Board from './components/Board'
+import ReactModal from 'react-modal'
 import RightPanel from './components/RightPanel'
 import Welcome from './components/Welcome'
 import { BoardConnected } from './connected-components'
