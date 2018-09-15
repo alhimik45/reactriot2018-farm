@@ -1,0 +1,26 @@
+.BitCointRound, .EthereumRound, .Round3, .Round4 {
+    height: 16px;
+    width: 16px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 3px;
+}
+
+.BitCointRound {
+    background: yellow;
+}
+
+.EthereumRound {
+    background: gray;
+    left: 15px;
+}
+
+.Round3 {
+    background: blue;
+    left: 30px;
+}
+
+.Round4 {
+    background: red;
+    left: 45px;
+}
