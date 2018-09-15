@@ -6,13 +6,3 @@
 .moving-object {
     display: inline-block;
 }
-
-.item {
-    border: 1px aqua dotted;
-    width: 75px;
-    height: 75px;
-}
-
-.empty-item {
-    background: rgba(20,250,20, 0.3);
-}

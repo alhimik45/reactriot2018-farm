@@ -1,0 +1,9 @@
+.cell-item {
+    border: 1px aqua dotted;
+    width: 75px;
+    height: 75px;
+}
+
+.cell-empty-item {
+    background: rgba(20,250,20, 0.3);
+}

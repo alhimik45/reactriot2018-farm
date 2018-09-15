@@ -7,7 +7,7 @@ const NumericValue = props =>
     <Grid>
       <Row>
         <Col md={2}>
-          <img src={props.icon} className="numeric-icon"/>
+          <img src={props.icon} alt={props.value} className="numeric-icon"/>
         </Col>
         <Col md={10}>
           <div className="numeric-value">

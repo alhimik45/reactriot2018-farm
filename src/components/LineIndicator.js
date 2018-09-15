@@ -8,7 +8,7 @@ const LineIndicator = props =>
     <Grid>
       <Row>
         <Col md={2}>
-          <img src={props.icon} className="line-icon"/>
+          <img src={props.icon} alt={props.percents} className="line-icon"/>
         </Col>
         <Col md={10}>
           <Line percent={props.percents}
