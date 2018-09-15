@@ -27,7 +27,7 @@ export const game = {
       state.currentItemToBuy = type
     }),
     placeItem: produce((state, { x, y }) => {
-      state.grid[y][x] = {type: state.currentItemToBuy}
+      state.grid[y][x] = { type: state.currentItemToBuy }
       state.currentItemToBuy = null;
     }),
   },

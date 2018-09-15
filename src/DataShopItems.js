@@ -1,32 +1,32 @@
 DataShopItem = {
-    Cats: [
+  Cats: [
+    {
+      CatName: "1",
+      Items: [
         {
-            CatName: "1",
-            Items: [
-                {
-                    Name: "1.1",
-                    Cost: 9.99,
-                    img: "",
-                    callBack: function () {
+          Name: "1.1",
+          Cost: 9.99,
+          img: "",
+          callBack: function () {
 
-                    }
+          }
 
-                }
-            ]
-        },
+        }
+      ]
+    },
+    {
+      CatName: "2",
+      Items: [
         {
-            CatName: "2",
-            Items: [
-                {
-                    Name: "2.2",
-                    Cost: 9.99,
-                    img: "",
-                    callBack: function () {
+          Name: "2.2",
+          Cost: 9.99,
+          img: "",
+          callBack: function () {
 
-                    }
+          }
 
-                }
-            ]
-        },
-    ]
+        }
+      ]
+    },
+  ]
 }
