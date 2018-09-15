@@ -106,7 +106,7 @@ class Trading extends Component {
         if (result.length === 0) {
             return 0;
         } else {
-            return result[0].data[result[0].data.length - 1] * this.state.volume;
+            return result[0].data[result[0].data.length - 3] * this.state.volume;
         }
     }
 
