@@ -35,6 +35,6 @@ export const ShopButtonConnected = connect(null, ({ game: { selectToBuy } }) => 
 export const BoardConnected = connect(({ game: { currentItemToBuy, grid } }) => ({
   itemToBuy: currentItemToBuy,
   grid: grid
-}), ({ game: { placeItem } }) => ({
-  placeItem
+}), ({ game: { buyItem } }) => ({
+  placeItem: buyItem
 }))(Board)

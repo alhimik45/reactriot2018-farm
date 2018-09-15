@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Col, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import ReactModal from "react-modal";
+import './Welcome.css'
+import logo from "../img/logo.png"
 
 class Welcome extends Component {
   constructor (props) {
@@ -31,7 +33,7 @@ class Welcome extends Component {
       <div>
         <Row>
           <Col md={4}>
-            <img/>
+            <img src={logo} className="logo" />
           </Col>
           <Col md={8}>
             <h1>Welcome</h1>
@@ -39,7 +41,7 @@ class Welcome extends Component {
               texttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
           </Col>
         </Row>
-        <button className="RightBottom" onClick={this.handleCloseModal}>Start Game</button>
+        <Button className="RightBottom" onClick={this.handleCloseModal}>Start Game</Button>
       </div>
     </ReactModal>;
   }
