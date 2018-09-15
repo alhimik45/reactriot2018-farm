@@ -16,7 +16,7 @@ class App extends Component {
         return <div>
             <div>
                 {/*<button onClick={this.handleOpenModal}>Trigger Modal</button>*/}
-                <Welcome/>
+                {/*<Welcome/>*/}
             </div>
             <div className="littleMargin">
                 <Row>
@@ -24,9 +24,7 @@ class App extends Component {
                         <BoardConnected/>
                     </Col>
                     <Col md={4}>
-                        <RightPanel
-                            dollar="15"
-                        />
+                        <RightPanel/>
                     </Col>
                 </Row>
             </div>

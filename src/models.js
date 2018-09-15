@@ -30,6 +30,7 @@ export const game = {
       state.grid[y][x] = {
         key: `${Math.random()}`
       }
+      state.currentItemToBuy = null;
     }),
   },
   effects: (dispatch) => ({})
