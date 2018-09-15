@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ElectroLine, HeatLine } from '../connected-components'
-import LineIndicator from './LineIndicator'
 
 const RightPanel = () =>
   <div>
