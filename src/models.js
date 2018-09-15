@@ -1,8 +1,10 @@
 import { produce } from 'immer'
+import { Tech } from './data'
 
 export const game = {
   state: {
     currencies: {
+      $: 1000,
       BTC: 1
     },
     exchangeRates: {
@@ -13,7 +15,7 @@ export const game = {
     currentItemToBuy: null,
     grid: [
       [null, null, null, null, null],
-      [null, { key: "as" }, null, null, null],
+      [null, { type: "fan" }, null, null, null],
       [null, null, null, null, null],
       [null, null, null, null, null],
       [null, null, null, null, null],
@@ -23,14 +25,27 @@ export const game = {
     increaseElectricity: produce((state, increase) => {
       state.electricity += increase || 0
     }),
-    selectToBuy: produce((state, itemId) => {
-      state.currentItemToBuy = itemId
+    selectToBuy: produce((state, type) => {
+      state.currentItemToBuy = type
     }),
     placeItem: produce((state, { x, y }) => {
-      state.grid[y][x] = {
-        key: `${Math.random()}`
-      }
+      state.grid[y][x] = { type: state.currentItemToBuy }
+      state.currencies.$ -= Tech[state.currentItemToBuy].cost
+      state.currentItemToBuy = null;
+    }),
+    undoSelect: produce(state => {
+      state.currentItemToBuy = null;
     }),
   },
-  effects: (dispatch) => ({})
+  effects: (dispatch) => ({
+    async buyItem (payload, state) {
+      if (state.game.currencies.$ < Tech[state.game.currentItemToBuy].cost) {
+        alert("No money")
+        dispatch.game.undoSelect()
+      }
+      else {
+        dispatch.game.placeItem(payload)
+      }
+    }
+  })
 }
