@@ -11,25 +11,25 @@ class Trading extends Component {
             labels: ['5', '10', '15', '20', '25', '30', '35'],
             datasets: [{
                 label: "BTC",
-                data: [0],
+                data: [],
                 fill: false,
                 borderColor: "purple",
                 backgroundColor: "purple"
             }, {
                 label: "LTC",
-                data: [0],
+                data: [],
                 fill: false,
                 borderColor: "green",
                 backgroundColor: "green"
             }, {
                 label: "ETH",
-                data: [0],
+                data: [],
                 fill: false,
                 borderColor: "red",
                 backgroundColor: "red"
             }, {
                 label: "DASH",
-                data: [0],
+                data: [],
                 fill: false,
                 borderColor: "blue",
                 backgroundColor: "blue"
@@ -55,8 +55,8 @@ class Trading extends Component {
                 let newDataset = {
                     ...set
                 };
-                let newCourse = set.data.length === 0 ? _this.getRandomArbitrary(0, 10) : _this.getRandomArbitrary(0, set.data[set.data.length - 1] + 3);
-                if (newDataset.data.length === 6) {
+                let newCourse = set.data.length === 0 ? _this.getRandomArbitrary(500, 750) : _this.getRandomArbitrary(set.data[set.data.length - 1]-10, set.data[set.data.length - 1] + 10);
+                if (newDataset.data.length === 9) {
                     newDataset.data.shift();
                     needScroll = true;
                 }
@@ -65,7 +65,7 @@ class Trading extends Component {
             }
             if (needScroll) {
                 newLabels.shift();
-                newLabels.push(parseInt(newLabels[newLabels.length - 1]) + 5);
+                newLabels.push(parseInt(newLabels[newLabels.length - 1]) + 1);
             }
             let newState = {
                 ..._this.state,
@@ -76,7 +76,7 @@ class Trading extends Component {
             if (this.refs.chart !== undefined) {
                 this.refs.chart.chartInstance.update()
             }
-        }, 5000);
+        }, 250);
     }
 
     handleOpenTradingModal() {
