@@ -1,7 +1,7 @@
 .cell-item, .preview {
-    border: 1px aqua dotted;
-    width: 90px;
-    height: 90px;
+    border: 5px rgba(0,0,0,0.1) solid;
+    width: 100px;
+    height: 100px;
     display: flex;
     flex-direction: row;
 }
@@ -12,8 +12,24 @@
     width: 90px;
 }
 
+.cell-full-item {
+    position: relative;
+}
+
+.cell-full-item::after {
+    content: "";
+    background: url("../../img/motherboard.svg");
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
 .cell-empty-item {
-    background: rgba(20, 250, 20, 0.3);
+    background: rgba(20, 20, 250, 0.3);
 }
 
 .cell-empty-item .preview {

@@ -12,7 +12,7 @@ let itemSelector = (item) => ({
 
 export const Cell = props =>
   props.item ?
-    <div className="cell-item">
+    <div className="cell-item cell-full-item">
       {itemSelector(props.item)}
     </div>
     : <div
