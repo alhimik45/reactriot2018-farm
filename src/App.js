@@ -1,17 +1,18 @@
 import React from 'react';
 import './App.css';
-import LineIndicator from './components/LineIndicator'
 import { Col, Grid, Row } from 'react-bootstrap'
+import Board from './Board.js'
+import RightPanel from './RightPanel.js'
 
 const App = () =>
   <div>
     <Grid>
       <Row>
         <Col md={8}>
-
+          <Board/>
         </Col>
         <Col md={4}>
-          <LineIndicator count={32}/>
+          <RightPanel/>
         </Col>
       </Row>
     </Grid>
