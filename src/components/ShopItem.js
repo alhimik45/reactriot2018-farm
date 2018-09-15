@@ -9,97 +9,15 @@ class ShopItem extends Component {
 
     constructor(props) {
         super(props);
-        let DataShopItem =
+
+        var data = require('../DataShopItems.js');
+
+        console.log(data.default.Items);
 
 
-            {
-            Items: [
-                {
-                    Name: "1.1",
-                    Cost: 9.99,
-                    img: "",
-                    callBack: function () {
-                        alert("srafs");
-                    }
-
-                },
-                {
-                    Name: "2.2",
-                    Cost: 9.99,
-                    img: "",
-                    callBack: function () {
-
-                    }
-
-                },
-                {
-                    Name: "2.2",
-                    Cost: 9.99,
-                    img: "",
-                    callBack: function () {
-
-                    }
-
-                },
-                {
-                    Name: "1.1",
-                    Cost: 9.99,
-                    img: "",
-                    callBack: function () {
-
-                    }
-
-                },
-                {
-                    Name: "2.2",
-                    Cost: 9.99,
-                    img: "",
-                    callBack: function () {
-
-                    }
-
-                },
-                {
-                    Name: "2.2",
-                    Cost: 9.99,
-                    img: "",
-                    callBack: function () {
-
-                    }
-
-                },
-                {
-                    Name: "1.1",
-                    Cost: 9.99,
-                    img: "",
-                    callBack: function () {
-
-                    }
-
-                },
-                {
-                    Name: "2.2",
-                    Cost: 9.99,
-                    img: "",
-                    callBack: function () {
-
-                    }
-
-                },
-                {
-                    Name: "2.2",
-                    Cost: 9.99,
-                    img: "",
-                    callBack: function () {
-
-                    }
-
-                }
-            ]
-        };
         this.state = {
             showModal: false,
-            itemList: DataShopItem
+            itemList: data.default.Items
         };
 
         this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -116,7 +34,7 @@ class ShopItem extends Component {
 
 
     render() {
-        const actucalItemList = this.state.itemList.Items.map((item) =>
+        const actucalItemList = this.state.itemList.map((item) =>
             <Col md={4}>
                 <Item
                     name={item.Name}
