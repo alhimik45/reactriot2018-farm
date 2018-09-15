@@ -6,17 +6,19 @@ import Board from './components/Board'
 import RightPanel from './components/RightPanel'
 
 const App = () =>
-  <div>
-    <Grid>
+  <div className="littleMargin">
       <Row>
         <Col md={8}>
           <Board/>
         </Col>
         <Col md={4}>
-          <RightPanel/>
+          <RightPanel
+            dollar="15"
+            fire="55"
+            electro="95"
+          />
         </Col>
       </Row>
-    </Grid>
   </div>;
 
 export default App;

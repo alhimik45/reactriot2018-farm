@@ -1,0 +1,6 @@
+.BoxWithBorder {
+    border: 1px solid;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 15px;
+}
