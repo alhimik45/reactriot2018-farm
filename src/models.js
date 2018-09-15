@@ -5,6 +5,9 @@ export const game = {
     currencies: {
       BTC: 1
     },
+    exchangeRates: {
+      BTC: 6000
+    },
     electricity: 12,
     heat: 30
   },
