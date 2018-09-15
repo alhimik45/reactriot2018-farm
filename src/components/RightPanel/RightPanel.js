@@ -1,6 +1,6 @@
 import React from 'react';
-import ShopItem from './ShopItem';
-import { DollarsValue, ElectroLine, HeatLine, MegahashValue, ShopButtonConnected } from '../connected-components'
+import ShopItem from '../ShopItem';
+import { DollarsValue, ElectroLine, HeatLine, MegahashValue, ShopButtonConnected } from '../../connected-components'
 
 const RightPanel = props =>
   <div>

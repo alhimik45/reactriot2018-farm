@@ -3,6 +3,7 @@ import { produce } from 'immer'
 export const game = {
   state: {
     currencies: {
+      $: 200,
       BTC: 1
     },
     exchangeRates: {
