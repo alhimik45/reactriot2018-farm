@@ -64,6 +64,9 @@ class Trading extends Component {
                 datasets: newDatasets,
             };
             this.setState(newState);
+            if (this.refs.chart !== undefined) {
+                this.refs.chart.chartInstance.update()
+            }
         }, 5000);
     }
 
