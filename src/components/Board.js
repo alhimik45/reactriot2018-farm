@@ -9,7 +9,7 @@ const Board = props => <div className="board">
       {line.map((item, x) =>
         <Cell className="item"
               item={item}
-              enableHover={props.itemToBuy !== null}
+              itemToBuy={props.itemToBuy}
               onClick={props.itemToBuy ? () => props.placeItem({x,y}): null}
               key={`${x} ${y}`}/>
       )}

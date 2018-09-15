@@ -22,8 +22,12 @@ const RightPanel = props =>
       <HeatLine/>
     </div>
     <div>
-      <ShopButtonConnected type="fan"/>
-      <ShopButtonConnected type="motherboard"/>
+      <ShopButtonConnected type="fan">
+        Buy fan
+      </ShopButtonConnected>
+      <ShopButtonConnected type="gpu">
+        Buy GPU
+      </ShopButtonConnected>
     </div>
   </div>
 
