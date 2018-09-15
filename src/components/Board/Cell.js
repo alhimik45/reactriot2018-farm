@@ -3,19 +3,19 @@ import './Cell.css'
 import { Fan } from './Fan'
 import { Gpu } from './Gpu'
 
-let itemSelector = (type) => ({
-  gpu: <Gpu/>,
+let itemSelector = (item) => ({
+  universal: <Gpu img={item.img}/>,
   fan: <Fan/>
-}[type])
+}[item.type])
 
 export const Cell = props =>
   props.item ?
     <div className="cell-item">
-      {itemSelector(props.item.type)}
+      {itemSelector(props.item)}
     </div>
     : <div
       className={`cell-item cell-empty-item ${props.itemToBuy ? "cell-hover" : ""}`}
       onClick={props.onClick}>
-      <div className="preview">{itemSelector(props.itemToBuy)}</div>
+      {props.itemToBuy ? <div className="preview">{itemSelector(props.itemToBuy)}</div> : ""}
       &nbsp;
     </div>

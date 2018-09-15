@@ -5,8 +5,8 @@ import fire from './img/fire.svg'
 import dollar from './img/dollar.svg'
 import pick from './img/pick.svg'
 import NumericValue from './components/RightPanel/NumericValue'
-import ShopButton from './components/ShopButton'
 import Board from './components/Board/Board'
+import Shop from './components/Shop'
 
 export const ElectroLine = connect(({ game: { electricity } }) => ({
   percents: electricity,
@@ -28,13 +28,13 @@ export const MegahashValue = connect(({ game }) => ({
   icon: pick
 }), null)(NumericValue)
 
-export const ShopButtonConnected = connect(null, ({ game: { selectToBuy } }) => ({
-  buy: selectToBuy
-}))(ShopButton)
-
 export const BoardConnected = connect(({ game: { currentItemToBuy, grid } }) => ({
   itemToBuy: currentItemToBuy,
   grid: grid
 }), ({ game: { buyItem } }) => ({
   placeItem: buyItem
 }))(Board)
+
+export const ShopConnected = connect(null, ({ game: { startBuyItem } }) => ({
+  buy: startBuyItem
+}))(Shop)

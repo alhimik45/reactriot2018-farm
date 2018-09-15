@@ -1,6 +1,6 @@
 import React from 'react';
-import ShopItem from '../ShopItem';
-import { DollarsValue, ElectroLine, HeatLine, MegahashValue, ShopButtonConnected } from '../../connected-components'
+import { DollarsValue, ElectroLine, HeatLine, MegahashValue, ShopConnected } from '../../connected-components'
+import { ShopItems } from '../../data'
 
 const RightPanel = props =>
   <div>
@@ -16,16 +16,8 @@ const RightPanel = props =>
     <div>
       <HeatLine/>
     </div>
-    <div>
-      <ShopButtonConnected type="fan">
-        Buy fan
-      </ShopButtonConnected>
-      <ShopButtonConnected type="gpu">
-        Buy GPU
-      </ShopButtonConnected>
-    </div>
-    <div>
-      <ShopItem/>
+    <div style={{borderTop: '1px black solid'}}>
+      <ShopConnected items={ShopItems}/>
     </div>
   </div>
 

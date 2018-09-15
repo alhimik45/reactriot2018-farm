@@ -1,10 +1,12 @@
 import { produce } from 'immer'
 import { Tech } from './data'
 
+const getItemCost = ({type, variant}) => Tech[type][variant].cost
+
 export const game = {
   state: {
     currencies: {
-      $: 1000,
+      $: 100000,
       BTC: 1
     },
     exchangeRates: {
@@ -15,7 +17,7 @@ export const game = {
     currentItemToBuy: null,
     grid: [
       [null, null, null, null, null],
-      [null, { type: "fan" }, null, null, null],
+      [null, null, null, null, null],
       [null, null, null, null, null],
       [null, null, null, null, null],
       [null, null, null, null, null],
@@ -25,12 +27,12 @@ export const game = {
     increaseElectricity: produce((state, increase) => {
       state.electricity += increase || 0
     }),
-    selectToBuy: produce((state, type) => {
-      state.currentItemToBuy = type
+    selectToBuy: produce((state, selector) => {
+      state.currentItemToBuy = selector
     }),
     placeItem: produce((state, { x, y }) => {
-      state.grid[y][x] = { type: state.currentItemToBuy }
-      state.currencies.$ -= Tech[state.currentItemToBuy].cost
+      state.grid[y][x] = { ...state.currentItemToBuy }
+      state.currencies.$ -= Tech[state.currentItemToBuy.type][state.currentItemToBuy.variant].cost
       state.currentItemToBuy = null;
     }),
     undoSelect: produce(state => {
@@ -39,7 +41,7 @@ export const game = {
   },
   effects: (dispatch) => ({
     async buyItem (payload, state) {
-      const itemCost = Tech[state.game.currentItemToBuy].cost
+      const itemCost = getItemCost(state.game.currentItemToBuy)
       if (state.game.currencies.$ < itemCost) {
         dispatch.fadeMessages.showMessage({ x: payload.mouseX, y: payload.mouseY, text: "No money" })
         dispatch.game.undoSelect()
@@ -47,6 +49,14 @@ export const game = {
       else {
         dispatch.game.placeItem(payload)
         dispatch.fadeMessages.showMessage({ x: payload.mouseX, y: payload.mouseY, text: `- $${itemCost}` })
+      }
+    },
+    async startBuyItem (payload, state) {
+      const itemCost = getItemCost(payload)
+      if (state.game.currencies.$ < itemCost) {
+        dispatch.fadeMessages.showMessage({ x: payload.mouseX, y: payload.mouseY, text: "No money" })
+      } else {
+        dispatch.game.selectToBuy(payload)
       }
     }
   })
