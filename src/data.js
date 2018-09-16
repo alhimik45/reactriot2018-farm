@@ -203,22 +203,22 @@ export const Tech = {
   coin: {
     bitcoin: {
       cost: 0,
-      img: bitcoin,
+      img: [bitcoin,bitcoin],
       name: 'Bitcoin'
     },
     dash: {
       name: 'Dash',
       cost: 0,
-      img: dash,
+      img: [dash,dash],
     },
     ethereum: {
       cost: 0,
-      img: ethereum,
+      img: [ethereum,ethereum],
       name: 'Ethereum'
     },
     litecoin: {
       cost: 0,
-      img: litecoin,
+      img: [litecoin,litecoin],
       name: 'Litecoin'
     }
   }

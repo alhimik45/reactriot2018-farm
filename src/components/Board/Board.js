@@ -26,7 +26,7 @@ class Board extends React.Component {
     }
 
     const coinType = helpers.getRandomCoin();
-    const img = Tech.coin[coinType.toLowerCase()].img[0];
+    const img = Tech.coin[coinType.toLowerCase()].img;
 
     setTimeout(() => this.props.forcedSetItem({ x, y, item: null }), 5000);
     this.props.forcedSetItem({ x, y, item: { type: 'coin', coinType: coinType, img: img } });
