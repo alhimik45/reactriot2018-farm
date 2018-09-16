@@ -16,7 +16,7 @@ const SwitchButton = props =>
   }[props.currency]}/>
 
 export const Gpu = props =>
-  <Tooltip placement="top" visible={!props.preview} trigger={['hover']} mouseLeaveDelay={0} overlay={<div className="my-tooltip">
+  <Tooltip placement="top" trigger={props.preview ? [] : ['hover']} mouseLeaveDelay={0} overlay={<div className="my-tooltip">
     <b>Cost: </b>
     ${props.cost}<br/>
     <b>MH/s: </b>
