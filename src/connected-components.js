@@ -3,6 +3,10 @@ import LineIndicator from './components/RightPanel/LineIndicator'
 import electro from './img/electro.svg'
 import fire from './img/fire.svg'
 import dollar from './img/dollar.svg'
+import bitcoin from './img/bitcoin.svg'
+import dash from './img/dash.svg'
+import eth from './img/ethereum.svg'
+import litecoin from './img/litecoin.svg'
 import pick from './img/pick.svg'
 import NumericValue from './components/RightPanel/NumericValue'
 import Board from './components/Board/Board'
@@ -20,9 +24,29 @@ export const HeatLine = connect(({ game: { heatCurrent, heatMax } }) => ({
   icon: fire
 }), null)(LineIndicator)
 
-export const DollarsValue = connect(({ game: { currencies: { $ } } }) => ({
-  value: $,
+export const DollarsValue = connect(({ game: { currencies } }) => ({
+  value: currencies.$,
   icon: dollar
+}), null)(NumericValue)
+
+export const BitcoinValue = connect(({ game: { currencies } }) => ({
+  value: currencies.BTC,
+  icon: bitcoin
+}), null)(NumericValue)
+
+export const LitecoinValue = connect(({ game: { currencies } }) => ({
+  value: currencies.LTC,
+  icon: litecoin
+}), null)(NumericValue)
+
+export const EthValue = connect(({ game: { currencies } }) => ({
+  value: currencies.ETH,
+  icon: eth
+}), null)(NumericValue)
+
+export const DashValue = connect(({ game: { currencies } }) => ({
+  value: currencies.DASH,
+  icon: dash
 }), null)(NumericValue)
 
 export const MegahashValue = connect(({ game }) => ({
