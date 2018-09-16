@@ -11,6 +11,7 @@ const Board = props => <div className="board">
               item={item}
               itemToBuy={props.itemToBuy}
               onClick={props.itemToBuy ? e => props.placeItem({ x, y, mouseX: e.pageX, mouseY: e.pageY }) : null}
+              onSwitchCurrency={() => props.switchCurrency({x,y})}
               key={`${x} ${y}`}/>
       )}
     </Row>
