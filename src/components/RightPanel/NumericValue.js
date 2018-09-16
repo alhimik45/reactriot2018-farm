@@ -12,6 +12,7 @@ const NumericValue = props =>
         <Col md={9}>
           <div className="numeric-value">
             {props.value}
+            {props.name ? ` ${props.name}` : ""}
             {props.diff ? ` (Diff.: ${props.diff})` : ""}
           </div>
         </Col>
