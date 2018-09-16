@@ -103,11 +103,24 @@ class Trading extends Component {
     let result = this.state.datasets.filter(obj => {
       return obj.label === this.state.selected.value
     });
+    let volume = this.state.volume;
+    if (isNaN(volume)) {
+      volume = 0;
+    } else if (parseInt(volume, 10) < 0) {
+      volume = 0;
+    }
     if (result.length === 0) {
       return 0;
     } else {
-      return result[0].data[result[0].data.length - 3] * this.state.volume;
+      return result[0].data[result[0].data.length - 3] * volume;
     }
+  }
+
+  getValidationState() {
+    const value = this.state.volume;
+    if (isNaN(value)) return 'error';
+    if (parseInt(value, 10) < 0) return 'error';
+    return 'error';
   }
 
   render () {
@@ -125,7 +138,7 @@ class Trading extends Component {
           <img alt="exit" src={x}/>
         </Button>
         <Form inline>
-          <FormGroup className="TradingForm">
+          <FormGroup className="TradingForm" controlId="formBasicText" validationState={this.getValidationState()}>
             <InputGroup className="TenRightMargin">
               <FormControl type="text" onChange={(event) => {this.setState({ volume: event.target.value })}}/>
               <Dropdown options={this.state.dropdownOptions}
