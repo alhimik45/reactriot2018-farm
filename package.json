@@ -12,6 +12,8 @@
     "rc-progress": "^2.2.5",
     "rc-tooltip": "^3.7.3",
     "react": "^16.5.1",
+    "react-alert": "^4.0.4",
+    "react-alert-template-basic": "^1.0.0",
     "react-bootstrap": "^0.32.4",
     "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.5.1",

@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import { Col, Row } from 'react-bootstrap'
 import RightPanel from './components/RightPanel/RightPanel'
-import {
-    BoardConnected, CurrentScoreConnected,
-    TradingConnected,
-    WelcomeConnected
-} from './connected-components'
+import { BoardConnected, CurrentScoreConnected, TradingConnected, WelcomeConnected } from './connected-components'
 import FadeMessager from './FadeMessager'
+import { withAlert } from 'react-alert'
 
-export default class App extends Component {
+class App extends Component {
 
   render () {
     return <div>
@@ -27,6 +24,8 @@ export default class App extends Component {
           </Col>
         </Row>
       </div>
-    </div>;
+    </div>
   }
 }
+
+export default withAlert(App);
