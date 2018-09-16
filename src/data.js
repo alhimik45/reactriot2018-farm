@@ -1,14 +1,24 @@
 import nvidiaGtx from './img/nvidiaGtx.svg'
+import nvidiaGtx2 from './img/nvidiaGtx-2.svg'
 import nvidiaTitan from './img/nvidiaTitan.svg'
 import radeonLow from './img/radeonLow.svg'
+import radeonLow2 from './img/radeonLow-2.svg'
 import radeonHigh from './img/radeonHigh.svg'
+import radeonHigh2 from './img/radeonHigh-2.svg'
 import server from './img/server.svg'
+import server2 from './img/server-2.svg'
 import fan from './img/fan.svg'
+import fan2 from './img/fan-2.svg'
 import asicDash from './img/asic-dash.svg'
+import asicDash2 from './img/asic-dash-2.svg'
 import asicBitcoin from './img/asic-btc.svg'
+import asicBitcoin2 from './img/asic-btc-2.svg'
 import asicLitecoin from './img/asic-ltc.svg'
+import asicLitecoin2 from './img/asic-ltc-2.svg'
 import asicEth from './img/asic-eth.svg'
+import asicEth2 from './img/asic-eth-2.svg'
 import cooler from './img/cooler.svg'
+import cooler2 from './img/cooler-2.svg'
 import bitcoin from './img/bitcoin.svg';
 import dash from './img/dash.svg';
 import ethereum from './img/ethereum.svg';
@@ -20,7 +30,7 @@ export const Tech = {
     nvidiaGtx: {
       name: "NVIDIA GTX",
       cost: 1500,
-      img: nvidiaGtx,
+      img: [nvidiaGtx, nvidiaGtx2],
       hashes: 26,
       mine: "BTC",
       heatChange: 27,
@@ -36,7 +46,7 @@ export const Tech = {
     nvidiaTitan: {
       name: "NVIDIA Titan",
       cost: 3000,
-      img: nvidiaTitan,
+      img: [nvidiaTitan],
       hashes: 82,
       mine: "BTC",
       heatChange: 70,
@@ -52,7 +62,7 @@ export const Tech = {
     radeon1: {
       name: "AMD RX",
       cost: 500,
-      img: radeonLow,
+      img: [radeonLow, radeonLow2],
       hashes: 11,
       mine: "BTC",
       heatChange: 25,
@@ -68,7 +78,7 @@ export const Tech = {
     radeon: {
       name: "Radeon RX",
       cost: 1000,
-      img: radeonHigh,
+      img: [radeonHigh, radeonHigh2],
       hashes: 22,
       mine: "BTC",
       heatChange: 30,
@@ -84,7 +94,7 @@ export const Tech = {
     cloudServer: {
       name: "Mining Cluster",
       cost: 20000,
-      img: server,
+      img: [server, server2],
       hashes: 200,
       mine: "BTC",
       heatChange: 90,
@@ -102,7 +112,7 @@ export const Tech = {
     dash: {
       name: "Dash ASIC",
       cost: 5000,
-      img: asicDash,
+      img: [asicDash, asicDash2],
       hashes: 80,
       mine: "DASH",
       heatChange: 35,
@@ -118,7 +128,7 @@ export const Tech = {
     bitcoin: {
       name: "Bitcoin ASIC",
       cost: 5000,
-      img: asicBitcoin,
+      img: [asicBitcoin, asicBitcoin2],
       hashes: 80,
       mine: "BTC",
       heatChange: 35,
@@ -134,7 +144,7 @@ export const Tech = {
     litecoin: {
       name: "Litecoin ASIC",
       cost: 5000,
-      img: asicLitecoin,
+      img: [asicLitecoin, asicLitecoin2],
       hashes: 80,
       mine: "LTC",
       heatChange: 35,
@@ -150,7 +160,7 @@ export const Tech = {
     eth: {
       name: "Etherium ASIC",
       cost: 5000,
-      img: asicEth,
+      img: [asicEth, asicEth2],
       hashes: 80,
       mine: "ETH",
       heatChange: 35,
@@ -168,7 +178,7 @@ export const Tech = {
     common: {
       name: "Cooler",
       cost: 100,
-      img: fan,
+      img: [fan, fan2],
       heatChange: -10,
       overlay: <div className="my-tooltip">
         <b>Cost: </b>
@@ -180,7 +190,7 @@ export const Tech = {
     industrial: {
       name: "Upgraded cooler",
       cost: 500,
-      img: cooler,
+      img: [cooler, cooler2],
       heatChange: -30,
       overlay: <div className="my-tooltip">
         <b>Cost: </b>
@@ -215,11 +225,11 @@ export const Tech = {
 };
 
 export const ShopItems = Object.keys(Tech)
-    .filter(key => key !== 'coin')
-    .flatMap(type =>
-        Object.keys(Tech[type])
-            .map(variant => ({
+  .filter(key => key !== 'coin')
+  .flatMap(type =>
+    Object.keys(Tech[type])
+      .map(variant => ({
         ...Tech[type][variant],
-                type,
+        type,
         variant
-            })))
+      })))
