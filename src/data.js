@@ -54,7 +54,7 @@ export const Tech = {
       img: server,
       hashes: 100,
       mine: "BTC",
-      heatChange: 10
+      heatChange: 200
     }
   },
   asic: {
