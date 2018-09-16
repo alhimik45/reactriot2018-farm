@@ -121,7 +121,7 @@ export const game = {
     increaseScore: produce((state, { curr, delta }) => {
       const dict = {
         'ethereum': 'ETH',
-        'litecoun': 'LTC',
+        'litecoin': 'LTC',
         'dash': 'DASH',
         'bitcoin': 'BTC'
       };
@@ -209,7 +209,7 @@ export const game = {
     async upMessage (payload, state) {
       const dict = {
         'ethereum': 'ETH',
-        'litecoun': 'LTC',
+        'litecoin': 'LTC',
         'dash': 'DASH',
         'bitcoin': 'BTC'
       };
