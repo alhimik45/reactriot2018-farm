@@ -47,7 +47,7 @@ class Welcome extends Component {
               <img src={exchangehelp} alt="help"/>
             </p>
             <p>
-              Some equipment can change its currency for mining. Just click several times on currency icon in the corner
+              Some equipment can change its currency for mining. Just click several times on currency icon in the corner (not about ASICs)
               <img className="Block" src={gpuhelp} alt="help"/>
             </p>
             <p>
