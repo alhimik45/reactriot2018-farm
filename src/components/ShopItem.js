@@ -3,6 +3,8 @@ import './ShopItem.css'
 
 const ShopItem = props =>
   <div className="shop-item"
+
+       style={{boxShadow: props.sellActive ? "inset 0 0 15px rgba(0,0,0,0.7)" : ""}}
        onClick={props.onClick}>
     <div>
       {props.name}

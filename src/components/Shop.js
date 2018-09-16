@@ -38,6 +38,7 @@ const Shop = props =>
       <Col key="sell"
            md={4}>
         <ShopItem
+          sellActive={props.sellActive}
           onClick={props.toggleSell}
           name="Sell item"
           cost="&nbsp;"
