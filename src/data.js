@@ -49,7 +49,7 @@ export const Tech = {
       heatChange: 1
     },
     cloudServer: {
-      name: "Cloud miner",
+      name: "Mining Cluster",
       cost: 5000,
       img: server,
       hashes: 100,

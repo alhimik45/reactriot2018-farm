@@ -86,7 +86,6 @@ export const game = {
         let x = rnd[0];
         let y = rnd[1];
         let i = 0
-        debugger;
         while (state.grid[x][y] == null || state.grid[x][y].type === 'coin') {
           ++i;
           if (i > 100) return
