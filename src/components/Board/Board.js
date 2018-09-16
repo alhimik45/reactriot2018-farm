@@ -62,9 +62,9 @@ class Board extends React.Component {
         };
 
         return props.itemToBuy
-            ? e => props.placeItem({x, y, mouseX: e.pageX, mouseY: e.pageY})
+            ? props.placeItem({x, y, mouseX: e.pageX, mouseY: e.pageY})
             : props.sellActive && item != null && item.type !== 'coin'
-                ? e => props.sell({x, y, mouseX: e.pageX, mouseY: e.pageY})
+                ? props.sell({x, y, mouseX: e.pageX, mouseY: e.pageY})
                 : null;
   }
 }

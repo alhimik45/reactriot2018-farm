@@ -18,7 +18,7 @@ const SwitchButton = props =>
 
 export const Gpu = props =>
   <div>
-    <MinicoinGenerator coin={props.hashes / 500} currency={props.mine}/>
+    {props.preview ? null : <MinicoinGenerator coin={props.hashes / 500} currency={props.mine}/>}
     <Tooltip placement="top" trigger={props.preview ? [] : ['hover']} mouseLeaveDelay={0}
              overlay={<div className="my-tooltip">
                <b>Cost: </b>
