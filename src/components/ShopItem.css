@@ -1,0 +1,10 @@
+.shop-item {
+    border: 6px #195082 solid;
+    border-radius: 13px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.shop-item img {
+    width: 60px;
+}

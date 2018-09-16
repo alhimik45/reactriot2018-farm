@@ -7,14 +7,14 @@ class FadeInOutUp extends Component {
   constructor (props) {
     super(props)
     const fadeInOut = css.keyframes({
-      '0%': { top: this.props.top },
-      '90%': { top: this.props.top - 20 },
+      '0%': { top: this.props.top - window.scrollY },
+      '90%': { top: this.props.top - window.scrollY - 20 },
       '100%': { top: -1000 }
     })
     this.animation = css({
       position: 'fixed',
-      left: this.props.left,
-      top: this.props.top,
+      left: this.props.left - window.scrollX,
+      top: this.props.top - window.scrollY,
       zIndex: 42,
       animation: `${fadeInOut} ${this.props.timeMs / 1000 || 1}s`
     })

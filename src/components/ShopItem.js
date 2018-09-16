@@ -1,7 +1,8 @@
 import React from 'react';
+import './ShopItem.css'
 
 const ShopItem = props =>
-  <div style={{ border: '1px blue solid' }}
+  <div className="shop-item"
        onClick={props.onClick}>
     <div>
       {props.name}

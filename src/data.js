@@ -8,6 +8,7 @@ import asicDash from './img/asic-dash.svg'
 import asicBitcoin from './img/asic-btc.svg'
 import asicLitecoin from './img/asic-ltc.svg'
 import asicEth from './img/asic-eth.svg'
+import cooler from './img/cooler.svg'
 
 export const Tech = {
   universal: {
@@ -92,6 +93,12 @@ export const Tech = {
       cost: 100,
       img: fan,
       heatChange: -50
+    },
+    industrial: {
+      name: "Industrial cooler",
+      cost: 500,
+      img: cooler,
+      heatChange: -300
     }
   }
 }

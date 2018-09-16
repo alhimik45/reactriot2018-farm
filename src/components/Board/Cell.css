@@ -38,7 +38,7 @@
 }
 
 .cell-hover:hover {
-    background: rgba(250, 20, 20, 0.2);
+    background: rgba(20, 250, 20, 0.2);
 }
 
 .cell-hover:hover .preview {
