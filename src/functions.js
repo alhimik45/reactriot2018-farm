@@ -1,4 +1,6 @@
-export const calcDollars = gameState =>
-  Object.keys(gameState.currencies)
-    .map(currency => gameState.currencies[currency] * gameState.exchangeRates[currency])
+export const calcHashs = gameState =>
+  gameState.grid.flatMap(line =>
+    line
+      .filter(item => item && item.hashes)
+      .map(item => item.hashes))
     .reduce((prev, curr) => prev + curr, 0)

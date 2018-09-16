@@ -39,6 +39,7 @@ class Board extends React.Component {
                               item={item}
                               itemToBuy={props.itemToBuy}
                               onClick={props.itemToBuy ? e => this.placeItem(x, y, e) : null}
+              onSwitchCurrency={() => props.switchCurrency({x,y})}
                               key={`${x} ${y}`}/>
                     )}
                 </Row>

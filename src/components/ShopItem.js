@@ -1,13 +1,14 @@
 import React from 'react';
+import './ShopItem.css'
 
 const ShopItem = props =>
-  <div style={{ border: '1px blue solid' }}
+  <div className="shop-item"
        onClick={props.onClick}>
     <div>
       {props.name}
     </div>
     <div>
-      <img src={props.img}/>
+      <img src={props.img} alt={props.name}/>
     </div>
     <div>
       ${props.cost}

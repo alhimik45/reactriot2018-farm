@@ -1,9 +1,8 @@
 .TradingModal {
     position: absolute;
     top: 15vh;
-    left: 25%;
+    left: 10%;
     width: 50%;
-    height: 60vh;
     background-color: honeydew;
     border: 3px firebrick solid;
     border-radius: 15px;

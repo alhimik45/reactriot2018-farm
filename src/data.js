@@ -8,6 +8,7 @@ import asicDash from './img/asic-dash.svg'
 import asicBitcoin from './img/asic-btc.svg'
 import asicLitecoin from './img/asic-ltc.svg'
 import asicEth from './img/asic-eth.svg'
+import cooler from './img/cooler.svg'
 import bitcoin from './img/bitcoin.svg';
 import dash from './img/dash.svg';
 import ethereum from './img/ethereum.svg';
@@ -18,56 +19,90 @@ export const Tech = {
     nvidiaGtx: {
       name: "Nvidia GTX",
       cost: 1500,
-      img: nvidiaGtx
+      img: nvidiaGtx,
+      hashes: 100,
+      mine: "BTC",
+      heatChange: 10
     },
     nvidiaTitan: {
       name: "Nvidia Titan",
       cost: 4500,
-      img: nvidiaTitan
+      img: nvidiaTitan,
+      hashes: 100,
+      mine: "BTC",
+      heatChange: 10
     },
     radeon1: {
       name: "AMD RX 560",
       cost: 2800,
-      img: radeonLow
+      img: radeonLow,
+      hashes: 100,
+      mine: "BTC",
+      heatChange: 10
     },
     radeon: {
       name: "Radeon RX 470",
       cost: 3500,
-      img: radeonHigh
+      img: radeonHigh,
+      hashes: 100,
+      mine: "BTC",
+      heatChange: 10
     },
     cloudServer: {
       name: "Cloud miner",
       cost: 5000,
-      img: server
+      img: server,
+      hashes: 100,
+      mine: "BTC",
+      heatChange: 100
     }
   },
   asic: {
     dash: {
       name: "Dash ASIC",
       cost: 2000,
-      img: asicDash
+      img: asicDash,
+      hashes: 100,
+      mine: "DASH",
+      heatChange: 10
     },
     bitcoin: {
       name: "Bitcoin ASIC",
       cost: 2000,
-      img: asicBitcoin
+      img: asicBitcoin,
+      hashes: 100,
+      mine: "BTC",
+      heatChange: 10
     },
     litecoin: {
       name: "Litecoin ASIC",
       cost: 2000,
-      img: asicLitecoin
+      img: asicLitecoin,
+      hashes: 100,
+      mine: "LTC",
+      heatChange: 10
     },
     eth: {
       name: "Etherium ASIC",
       cost: 2000,
-      img: asicEth
+      img: asicEth,
+      hashes: 100,
+      mine: "ETH",
+      heatChange: 10
     }
   },
   fan: {
     common: {
       name: "Cooler",
       cost: 100,
-      img: fan
+      img: fan,
+      heatChange: -50
+    },
+    industrial: {
+      name: "Industrial cooler",
+      cost: 500,
+      img: cooler,
+      heatChange: -300
     }
   },
   coin: {
@@ -98,9 +133,7 @@ export const ShopItems = Object.keys(Tech)
     .flatMap(type =>
         Object.keys(Tech[type])
             .map(variant => ({
+        ...Tech[type][variant],
                 type,
-                variant,
-                name: Tech[type][variant].name,
-                cost: Tech[type][variant].cost,
-                img: Tech[type][variant].img
+        variant
             })))

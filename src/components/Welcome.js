@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Button, Col, Row } from "react-bootstrap";
-import ReactModal from "react-modal";
+import React, { Component } from 'react'
+import { Button, Col, Row } from "react-bootstrap"
+import ReactModal from "react-modal"
 import './Welcome.css'
 import logo from "../img/logo.png"
 
@@ -9,17 +9,18 @@ class Welcome extends Component {
     super(props)
     this.state = {
       showModal: true
-    };
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
+    }
+    this.handleOpenModal = this.handleOpenModal.bind(this)
+    this.handleCloseModal = this.handleCloseModal.bind(this)
   }
 
   handleOpenModal () {
-    this.setState({ showModal: true });
+    this.setState({ showModal: true })
   }
 
   handleCloseModal () {
-    this.setState({ showModal: false });
+    this.props.startGame()
+    this.setState({ showModal: false })
   }
 
   render () {
@@ -33,7 +34,7 @@ class Welcome extends Component {
       <div>
         <Row>
           <Col md={4}>
-            <img src={logo} className="logo" />
+            <img src={logo} className="logo" alt="logo"/>
           </Col>
           <Col md={8}>
             <h1>Welcome</h1>
@@ -43,8 +44,8 @@ class Welcome extends Component {
         </Row>
         <Button className="RightBottom" onClick={this.handleCloseModal}>Start Game</Button>
       </div>
-    </ReactModal>;
+    </ReactModal>
   }
 }
 
-export default Welcome;
+export default Welcome

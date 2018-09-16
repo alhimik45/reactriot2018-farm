@@ -1,15 +1,22 @@
 import React from 'react';
-import { DollarsValue, ElectroLine, HeatLine, MegahashValue, ShopConnected } from '../../connected-components'
+import {
+  BitcoinValue, DashValue,
+  DollarsValue,
+  ElectroLine, EthValue,
+  HeatLine, LitecoinValue,
+  MegahashValue,
+  ShopConnected
+} from '../../connected-components'
 import { ShopItems } from '../../data'
 
 const RightPanel = props =>
   <div>
-    <div>
       <DollarsValue/>
-    </div>
-    <div>
+      <BitcoinValue/>
+      <LitecoinValue/>
+      <EthValue/>
+      <DashValue/>
       <MegahashValue/>
-    </div>
     <div>
       <ElectroLine/>
     </div>
