@@ -34,7 +34,7 @@ class Board extends React.Component {
   render () {
     const props = this.props;
 
-    return (<div className="board">
+    return <div className="board">
       <Row>
         {props.grid.flatMap((line, y) =>
           line.map((item, x) =>
@@ -55,7 +55,7 @@ class Board extends React.Component {
           )
         )}
       </Row>
-    </div>)
+    </div>
   }
 }
 
