@@ -7,7 +7,7 @@ const ShopItem = props =>
       {props.name}
     </div>
     <div>
-      <img src={props.img}/>
+      <img src={props.img} alt={props.name}/>
     </div>
     <div>
       ${props.cost}

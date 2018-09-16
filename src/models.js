@@ -9,14 +9,8 @@ const asyncDelay = ms => new Promise(res => setTimeout(res, ms))
 export const game = {
   state: {
     currencies: {
-      $: 100000,
+      $: 6000,
       BTC: 1,
-      LTC: 1,
-      DASH: 1,
-      ETH: 1
-    },
-    exchangeRates: {
-      BTC: 6000,
       LTC: 1,
       DASH: 1,
       ETH: 1

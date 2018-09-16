@@ -34,7 +34,7 @@ class Welcome extends Component {
       <div>
         <Row>
           <Col md={4}>
-            <img src={logo} className="logo"/>
+            <img src={logo} className="logo" alt="logo"/>
           </Col>
           <Col md={8}>
             <h1>Welcome</h1>
