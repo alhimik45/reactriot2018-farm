@@ -1,6 +1,7 @@
 import { produce } from 'immer'
 import { Tech } from './data'
 import fan from './img/fan.svg'
+import helpers from './components/Board/helpers'
 
 const getItemCost = ({ type, variant }) => Tech[type][variant].cost
 
@@ -36,10 +37,10 @@ export const game = {
     currentItemToBuy: null,
     grid: [
       [null, null, null, null, null, null, null, null, null],
-      [null, null, null, null, null, null, { ...fanItem }, null, null],
-      [null, null, { ...fanItem }, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null, null],
-      [null, null, null, { ...fanItem }, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null],
     ]
   },
   reducers: {
@@ -79,6 +80,28 @@ export const game = {
       }
       if (state.heatCurrent > state.heatMax) {
         state.heatCurrent = state.heatMax
+      }
+      if (state.heatCurrent > state.heatMax * 0.8) {
+        let rnd = helpers.getRandomCell(state.grid);
+        let x = rnd[0];
+        let y = rnd[1];
+        let i = 0
+        debugger;
+        while (state.grid[x][y] == null || state.grid[x][y].type === 'coin') {
+          ++i;
+          if (i > 100) return
+          rnd = helpers.getRandomCell(state.grid);
+          x = rnd[0];
+          y = rnd[1];
+        }
+        const elem = state.grid[x][y]
+        switch (elem.type) {
+          case 'universal':
+          case 'asic':
+            elem.hashes = Math.floor(elem.hashes * 0.8)
+            elem.cost = Math.floor(elem.cost * 0.9)
+            break;
+        }
       }
     }),
     currencyChange: produce((state, changes) => {
@@ -149,7 +172,7 @@ export const game = {
         dispatch.game.setSell(false)
       }
     },
-    sellItem (payload, state) {
+    async sellItem (payload, state) {
       if (state.game.grid[payload.y][payload.x] == null)
         return
       dispatch.fadeMessages.showMessage({

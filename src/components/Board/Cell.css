@@ -29,6 +29,10 @@
     z-index: -1;
 }
 
+.cell-coin::after {
+    background: unset;
+}
+
 .cell-empty-item {
     background: rgba(20, 20, 250, 0.3);
 }

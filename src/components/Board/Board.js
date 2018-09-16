@@ -1,6 +1,6 @@
 import React from 'react';
 import './Board.css'
-import { Row, Col } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 import { Cell } from './Cell'
 import helpers from "./helpers";
 import { Tech } from "../../data";
@@ -38,7 +38,7 @@ class Board extends React.Component {
       <Row>
         {props.grid.flatMap((line, y) =>
           line.map((item, x) =>
-            <Col>
+            <Col key={`${x} ${y}`}>
               <Cell className="item"
                     item={item}
                     itemToBuy={props.itemToBuy}
@@ -50,7 +50,7 @@ class Board extends React.Component {
                     onSwitchCurrency={props.sellActive
                       ? e => props.sell({ x, y, mouseX: e.pageX, mouseY: e.pageY })
                       : () => props.switchCurrency({ x, y })}
-                    key={`${x} ${y}`}/>
+              />
             </Col>
           )
         )}
