@@ -17,25 +17,25 @@ class Trading extends Component {
       labels: ['1', '2', '3', '4', '5', '6', '7'],
       datasets: [{
         label: "BTC",
-        data: [0.001],
+        data: [],
         fill: false,
         borderColor: "orange",
         backgroundColor: "orange"
       }, {
         label: "LTC",
-        data: [0.001],
+        data: [],
         fill: false,
         borderColor: "gray",
         backgroundColor: "gray"
       }, {
         label: "ETH",
-        data: [0.001],
+        data: [],
         fill: false,
         borderColor: "purple",
         backgroundColor: "purple"
       }, {
         label: "DASH",
-        data: [0.001],
+        data: [],
         fill: false,
         borderColor: "blue",
         backgroundColor: "blue"
