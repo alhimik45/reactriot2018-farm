@@ -51,6 +51,7 @@ export const game = {
     }),
     placeItem: produce((state, { x, y }) => {
       state.grid[y][x] = { ...state.currentItemToBuy }
+      state.grid[y][x].cost = Math.round(state.grid[y][x].cost / 2);
       state.currencies.$ -= Tech[state.currentItemToBuy.type][state.currentItemToBuy.variant].cost
       state.currentItemToBuy = null;
     }),
