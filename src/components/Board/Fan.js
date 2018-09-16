@@ -2,7 +2,7 @@ import React from 'react'
 import Tooltip from 'rc-tooltip'
 
 export const Fan = props =>
-  <Tooltip placement="top" trigger={['hover']} mouseLeaveDelay={0} overlay={<div className="my-tooltip">
+  <Tooltip placement="top" trigger={props.preview ? [] : ['hover']} mouseLeaveDelay={0} overlay={<div className="my-tooltip">
     <b>Cost: </b>
     ${props.cost}<br/>
     <b>Cools: </b>
