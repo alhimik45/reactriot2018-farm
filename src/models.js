@@ -24,7 +24,7 @@ const nextCurrency = mine => ({
 export const game = {
   state: {
     currencies: {
-      $: 607770,
+      $: 700,
       BTC: 0,
       LTC: 0,
       DASH: 0,
@@ -36,7 +36,7 @@ export const game = {
       DASH: 400,
       ETH: 400
     },
-    heatCurrent: 30,
+    heatCurrent: 0,
     heatMax: 250,
     sellActive: false,
     currentItemToBuy: null,

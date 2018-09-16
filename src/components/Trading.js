@@ -112,18 +112,18 @@ class Trading extends Component {
       for (let [key, value] of Object.entries(this.state.correlations)) {
         if (Math.random() > 0.5) {
           console.log(key + ' down')
-          let newMinCorrelation = this.getRandomArbitrary(value.minCorrelation - 50 < 0 ? 0 : value.minCorrelation - 50,  value.minCorrelation)
+          let newMinCorrelation = this.getRandomArbitrary(value.minCorrelation - 100 < 0 ? 0 : value.minCorrelation - 100,  value.minCorrelation)
           let newMaxCorrelation = this.getRandomArbitrary(newMinCorrelation,  value.maxCorrelation -  value.minCorrelation);
           newCorrelations[key] = {minCorrelation: newMinCorrelation, maxCorrelation: newMaxCorrelation};
         } else {
           console.log(key + ' up')
-          let newMinCorrelation = this.getRandomArbitrary(value.minCorrelation + 50, value.maxCorrelation - value.minCorrelation)
-          let newMaxCorrelation = this.getRandomArbitrary(value.maxCorrelation, value.maxCorrelation + 50);
+          let newMinCorrelation = this.getRandomArbitrary(value.minCorrelation + 100, value.maxCorrelation - value.minCorrelation)
+          let newMaxCorrelation = this.getRandomArbitrary(value.maxCorrelation, value.maxCorrelation + 100);
           newCorrelations[key] = {minCorrelation: newMinCorrelation, maxCorrelation: newMaxCorrelation};
         }
       }
       this.setState({correlations: newCorrelations});
-    }, 20000)
+    }, 10000)
   }
 
   handleOpenTradingModal () {
