@@ -13,6 +13,7 @@ import bitcoin from './img/bitcoin.svg';
 import dash from './img/dash.svg';
 import ethereum from './img/ethereum.svg';
 import litecoin from './img/litecoin.svg';
+import React from 'react'
 
 export const Tech = {
   universal: {
@@ -22,7 +23,8 @@ export const Tech = {
       img: nvidiaGtx,
       hashes: 100,
       mine: "BTC",
-      heatChange: 1
+      heatChange: 1,
+      overlay: <div className="my-tooltip">хуй</div>
     },
     nvidiaTitan: {
       name: "Nvidia Titan",

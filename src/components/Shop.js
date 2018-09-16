@@ -35,6 +35,7 @@ const Shop = props =>
               img={item.img}
               type={item.type}
               variant={item.variant}
+              overlay={item.overlay}
             />
           </Col>
         }
