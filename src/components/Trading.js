@@ -16,25 +16,25 @@ class Trading extends Component {
       labels: ['1', '2', '3', '4', '5', '6', '7'],
       datasets: [{
         label: "BTC",
-        data: [],
+        data: [0.001],
         fill: false,
         borderColor: "orange",
         backgroundColor: "orange"
       }, {
         label: "LTC",
-        data: [],
+        data: [0.001],
         fill: false,
         borderColor: "gray",
         backgroundColor: "gray"
       }, {
         label: "ETH",
-        data: [],
+        data: [0.001],
         fill: false,
         borderColor: "purple",
         backgroundColor: "purple"
       }, {
         label: "DASH",
-        data: [],
+        data: [0.001],
         fill: false,
         borderColor: "blue",
         backgroundColor: "blue"
@@ -46,10 +46,14 @@ class Trading extends Component {
       selected: { value: "BTC", label: "BTC" },
       dropdownOptions: ["BTC", "LTC", "ETH", "DASH"],
       volume: 0,
+      maxCorrelation: 100,
+      minCorrelation: 100
     };
 
     this.handleOpenTradingModal = this.handleOpenTradingModal.bind(this);
     this.handleCloseTradingModal = this.handleCloseTradingModal.bind(this);
+
+
   }
 
   componentDidMount () {
@@ -63,16 +67,7 @@ class Trading extends Component {
         let newDataset = {
           ...set
         };
-        let minimalValue = set.data[set.data.length - 1] - 5;
-        let maximalValue = set.data[set.data.length - 1] + 5;
-        if (!isNaN(minimalValue) && !isNaN(maximalValue)) {
-          minimalValue = parseFloat(minimalValue.toFixed(3));
-          maximalValue = parseFloat(maximalValue.toFixed(3));
-        }
-        if (minimalValue < 0) {
-          minimalValue = _this.getRandomArbitrary(0, 1)
-        }
-        let newCourse = set.data.length === 0 ? _this.getRandomArbitrary(100, 150) : _this.getRandomArbitrary(minimalValue, maximalValue);
+        let newCourse = set.data.length === 0 ? _this.getRandomArbitrary(100, 150) : this.generatePriceValue(set.label);
         newCourse = parseFloat(newCourse.toFixed(3));
         if (newDataset.data.length === 7) {
           newDataset.data.shift();
@@ -94,7 +89,7 @@ class Trading extends Component {
       if (this.refs.chart !== undefined) {
         this.refs.chart.chartInstance.update()
       }
-    }, 1000);
+    }, 2000);
   }
 
   handleOpenTradingModal () {
@@ -108,6 +103,27 @@ class Trading extends Component {
   getRandomArbitrary (min, max) {
     return Math.random() * (max - min) + min;
   }
+
+  generatePriceValue(label) {
+    let currency = this.state.datasets.filter(obj => {
+      return obj.label === label
+    });
+    let value = currency[0].data[currency[0].data.length - 1];
+
+    //by changing max(min)Correlation in state we can change the price
+    let maxVolatile = value + this.state.maxCorrelation;
+    let minVolatile = value - 10 < 0 ? 0.5 : value - this.state.minCorrelation;
+
+    let minPercentage = maxVolatile / value;
+    let maxPercentage = minVolatile / value;
+    let range = maxPercentage - minPercentage;
+    let change = Math.random() * range + minPercentage;
+    value = Math.round(value * change * 100) / 100;
+    if (value <= 0) {
+      value = this.getRandomArbitrary(0, 1);
+    }
+    return value;
+  };
 
   getSelectedPrice () {
     let result = this.state.datasets.filter(obj => {
