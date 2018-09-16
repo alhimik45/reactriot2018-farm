@@ -21,7 +21,11 @@
 }
 
 .RightBottom {
-    bottom: 50px;
+    bottom: 20px;
     position: absolute;
-    right: 50px;
+    right: 20px;
+}
+
+.Block {
+    display: block;
 }

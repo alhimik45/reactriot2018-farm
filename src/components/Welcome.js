@@ -3,7 +3,9 @@ import { Button, Col, Row } from "react-bootstrap"
 import ReactModal from "react-modal"
 import './Welcome.css'
 import logo from "../img/logo.png"
-
+import gpuhelp from "../img/gpu-help.png"
+import exchangehelp from "../img/exchange-help.png"
+import overheathelp from "../img/heat-help.png"
 class Welcome extends Component {
   constructor (props) {
     super(props)
@@ -38,8 +40,20 @@ class Welcome extends Component {
           </Col>
           <Col md={8}>
             <h1>Welcome</h1>
-            <p>texttexttexttexttexttexttexttexttexttexttext
-              texttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+            <p>Hello! This is simple clicker game "Happy Mining Farm" :)</p>
+            <p>Place some mining equipment on board, click on generated coins!</p>
+            <p>
+              Trade your mined currency in stock exchange
+              <img src={exchangehelp} alt="help"/>
+            </p>
+            <p>
+              Some equipment can change its currency for mining. Just click several times on currency icon in the corner
+              <img className="Block" src={gpuhelp} alt="help"/>
+            </p>
+            <p>
+              Watch out of overheat! When you gen an overheat, your equipment will lost its power
+              <img src={overheathelp} alt="help"/>
+            </p>
           </Col>
         </Row>
         <Button className="RightBottom" onClick={this.handleCloseModal}>Start Game</Button>
