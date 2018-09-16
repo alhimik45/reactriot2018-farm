@@ -6,5 +6,9 @@ function getCoin() {
     return helpers.getRandomCoin();
 }
 
-export const Coin = props =>
-    <img alt="coin" style={{width: 90, height: 90}} src={Tech.coin[getCoin().toLowerCase()].img}/>;
+export const Coin = props => {
+    return <img onClick={props.onClick}
+                style={{width: 80, height: 80}}
+                alt="coin"
+                src={Tech.coin[getCoin().toLowerCase()].img}/>
+};

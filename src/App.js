@@ -3,15 +3,9 @@ import './App.css';
 import { Col, Row } from 'react-bootstrap'
 import RightPanel from './components/RightPanel/RightPanel'
 import {
-  BitcoinValue,
-  BoardConnected,
-  DashValue,
-  DollarsValue,
-  EthValue,
-  LitecoinValue,
-  MegahashValue,
-  TradingConnected,
-  WelcomeConnected
+    BoardConnected, CurrentScoreConnected,
+    TradingConnected,
+    WelcomeConnected
 } from './connected-components'
 import FadeMessager from './FadeMessager'
 
@@ -23,14 +17,7 @@ export default class App extends Component {
       <WelcomeConnected/>
       <TradingConnected/>
       <div className="littleMargin">
-        <Row className="values-row">
-          <Col md={2}><DollarsValue/></Col>
-          <Col md={2}><BitcoinValue/></Col>
-          <Col md={2}><LitecoinValue/></Col>
-          <Col md={2}><EthValue/></Col>
-          <Col md={2}><DashValue/></Col>
-          <Col md={2}><MegahashValue/></Col>
-        </Row>
+        <CurrentScoreConnected/>
         <Row>
           <Col md={8}>
             <BoardConnected/>

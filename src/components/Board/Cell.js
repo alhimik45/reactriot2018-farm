@@ -13,15 +13,19 @@ let itemSelector = (item) => ({
 }[item.type])
 
 export const Cell = props => {
-    return (    props.item ?
-        <div className="cell-item cell-full-item">
-            {itemSelector(props.item)(props.onSwitchCurrency)}
-        </div>
-        : <div
-            className={`cell-item cell-empty-item ${props.itemToBuy ? "cell-hover" : ""}`}
-            onClick={props.onClick}>
-            {props.itemToBuy ? <div className="preview">{itemSelector(props.itemToBuy)(null)}</div> : ""}
-            &nbsp;
-        </div>
+    const onSwitchCurrency = props.item && props.item.type === 'coin'
+        ? null
+        : props.onSwitchCurrency;
+
+    return (props.item
+            ? <div className="cell-item cell-full-item">
+                {itemSelector(props.item)(onSwitchCurrency)}
+            </div>
+            : <div
+                className={`cell-item cell-empty-item ${props.itemToBuy ? "cell-hover" : ""}`}
+                onClick={props.onClick}>
+                {props.itemToBuy ? <div className="preview">{itemSelector(props.itemToBuy)(null)}</div> : ""}
+                &nbsp;
+            </div>
     )
 }
