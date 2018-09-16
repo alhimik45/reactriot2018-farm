@@ -19,21 +19,25 @@ const Shop = props =>
     </Row>
     <Row>
       {props.items.map((item) =>
-        <Col key={item.name}
-             md={4}>
-          <ShopItem
-            onClick={e => props.buy({
-              ...item,
-              mouseX: e.pageX,
-              mouseY: e.pageY
-            })}
-            name={item.name}
-            cost={`$${item.cost}`}
-            img={item.img}
-            type={item.type}
-            variant={item.variant}
-          />
-        </Col>
+        {
+          const active = item && props.currentItemToBuy && props.currentItemToBuy.type === item.type && props.currentItemToBuy.variant === item.variant
+          return <Col key={item.name}
+                      md={4}>
+            <ShopItem
+              onClick={e => active ? props.undoSelect() : props.buy({
+                ...item,
+                mouseX: e.pageX,
+                mouseY: e.pageY
+              })}
+              needShadow={active}
+              name={item.name}
+              cost={`$${item.cost}`}
+              img={item.img}
+              type={item.type}
+              variant={item.variant}
+            />
+          </Col>
+        }
       )}
       <Col key="sell"
            md={4}>
