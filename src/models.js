@@ -96,6 +96,10 @@ export const game = {
       state.grid[y][x] = null
       state.sellActive = false
     }),
+    updateScore: produce((state, {curr, delta}) => {
+      debugger
+      state.currencies[curr] += delta;
+    }),
   },
   effects: (dispatch) => ({
     async buyItem (payload, state) {

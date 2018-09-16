@@ -51,8 +51,7 @@ export const DashValue = connect(({ game: { currencies } }) => ({
   icon: dash
 }), null)(NumericValue)
 
-export const CurrentScoreConnected = connect(({game: {currencies, coinType}}) => ({
-
+export const CurrentScoreConnected = connect(({game: {coinType, delta}}) => ({
 }), null)(CurrentScore);
 
 export const MegahashValue = connect(({ game }) => ({
