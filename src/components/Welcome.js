@@ -41,7 +41,7 @@ class Welcome extends Component {
           <Col md={8}>
             <h1>Welcome</h1>
             <p>Hello! This is simple clicker game "Happy Mining Farm" :)</p>
-            <p>Place some mining equipment on board, click on generated coins!</p>
+            <p>Place some mining equipment on board and click on generated coins!</p>
             <p>
               Trade your mined currency in stock exchange
               <img src={exchangehelp} alt="help"/>
@@ -51,7 +51,7 @@ class Welcome extends Component {
               <img className="Block" src={gpuhelp} alt="help"/>
             </p>
             <p>
-              Watch out of overheat! When you gen an overheat, your equipment will lost its power
+              Watch out of overheat! When you get an overheat, your equipment will lose its power
               <img src={overheathelp} alt="help"/>
             </p>
           </Col>
