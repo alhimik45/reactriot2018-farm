@@ -118,8 +118,21 @@ export const game = {
       state.grid[y][x] = null
       state.sellActive = false
     }),
+    increaseScore: produce((state, {curr, delta}) => {
+      const dict = {
+        'ethereum': 'ETH',
+        'litecoun': 'LTC',
+        'dash': 'DASH',
+        'bitcoin': 'BTC'
+      };
+
+      state.currencies[dict[curr]] += delta;
+    }),
   },
   effects: (dispatch) => ({
+    async updateScore(payload) {
+      dispatch.game.increaseScore(payload);
+    },
     async buyItem (payload, state) {
       const itemCost = getItemCost(state.game.currentItemToBuy)
       if (state.game.currencies.$ < itemCost) {

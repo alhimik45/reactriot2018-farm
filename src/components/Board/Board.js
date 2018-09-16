@@ -28,7 +28,7 @@ class Board extends React.Component {
     const img = Tech.coin[coinType.toLowerCase()].img;
 
     setTimeout(() => this.props.forcedSetItem({ x, y, item: null }), 5000);
-    this.props.forcedSetItem({ x, y, item: { type: 'coin', img: img } });
+        this.props.forcedSetItem({x, y, item: {type: 'coin', coinType: coinType, img: img}});
   }
 
   render () {
@@ -42,11 +42,7 @@ class Board extends React.Component {
               <Cell className="item"
                     item={item}
                     itemToBuy={props.itemToBuy}
-                    onClick={props.itemToBuy && item === null
-                      ? e => props.placeItem({ x, y, mouseX: e.pageX, mouseY: e.pageY })
-                      : props.sellActive && item !== null && item.type !== 'coin'
-                        ? e => props.sell({ x, y, mouseX: e.pageX, mouseY: e.pageY })
-                        : null}
+                              onClick={() => this.onCellClick(props, x, y, item)}
                     onSwitchCurrency={props.sellActive
                       ? e => props.sell({ x, y, mouseX: e.pageX, mouseY: e.pageY })
                       : () => props.switchCurrency({ x, y })}
@@ -56,6 +52,19 @@ class Board extends React.Component {
         )}
       </Row>
     </div>
+    }
+
+    onCellClick(props, x, y, item) {
+        if (item && item.type === 'coin') {
+            props.forcedSetItem({x: y, y: x, item: null});
+            props.updateScore({curr: item.coinType, delta: 1})
+        };
+
+        return props.itemToBuy
+            ? e => props.placeItem({x, y, mouseX: e.pageX, mouseY: e.pageY})
+            : props.sellActive && item != null && item.type !== 'coin'
+                ? e => props.sell({x, y, mouseX: e.pageX, mouseY: e.pageY})
+                : null;
   }
 }
 
