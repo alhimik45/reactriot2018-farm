@@ -5,10 +5,6 @@ import { Cell } from './Cell'
 import helpers from "./helpers";
 
 class Board extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         setInterval(this.insertCoins.bind(this), 5000);
     }
@@ -18,7 +14,10 @@ class Board extends React.Component {
         let x = rnd[0];
         let y = rnd[1];
 
+        let i = 0
         while (this.props.grid[x][y] !== null) {
+            ++i;
+            if(i > 10) return;
             rnd = helpers.getRandomCell(this.props.grid);
             x = rnd[0];
             y = rnd[1];
