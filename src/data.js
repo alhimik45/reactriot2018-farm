@@ -18,79 +18,150 @@ import React from 'react'
 export const Tech = {
   universal: {
     nvidiaGtx: {
-      name: "Nvidia GTX",
+      name: "NVIDIA GTX 1050",
       cost: 1500,
       img: nvidiaGtx,
-      hashes: 100,
+      hashes: 26,
       mine: "BTC",
-      heatChange: 1,
-      overlay: <div className="my-tooltip">хуй</div>
+      heatChange: 27,
+      overlay: <div className="my-tooltip">
+        <b>Cost: </b>
+        $1500<br/>
+        <b>MH/s: </b>
+        26<br/>
+        <b>Heats Up: </b>
+        27°C<br/>
+      </div>
     },
     nvidiaTitan: {
-      name: "Nvidia Titan",
-      cost: 4500,
+      name: "NVIDIA Titan",
+      cost: 3000,
       img: nvidiaTitan,
-      hashes: 100,
+      hashes: 82,
       mine: "BTC",
-      heatChange: 1
+      heatChange: 70,
+      overlay: <div className="my-tooltip">
+        <b>Cost: </b>
+        $4500<br/>
+        <b>MH/s: </b>
+        82<br/>
+        <b>Heats Up: </b>
+        70°C<br/>
+      </div>
     },
     radeon1: {
       name: "AMD RX 560",
-      cost: 2800,
+      cost: 500,
       img: radeonLow,
-      hashes: 100,
+      hashes: 11,
       mine: "BTC",
-      heatChange: 1
+      heatChange: 25,
+      overlay: <div className="my-tooltip">
+        <b>Cost: </b>
+        $500<br/>
+        <b>MH/s: </b>
+        11<br/>
+        <b>Heats Up: </b>
+        25C<br/>
+      </div>
     },
     radeon: {
-      name: "Radeon RX 470",
-      cost: 3500,
+      name: "Radeon RX 580",
+      cost: 1000,
       img: radeonHigh,
-      hashes: 100,
+      hashes: 22,
       mine: "BTC",
-      heatChange: 1
+      heatChange: 30,
+      overlay: <div className="my-tooltip">
+        <b>Cost: </b>
+        $1000<br/>
+        <b>MH/s: </b>
+        22<br/>
+        <b>Heats Up: </b>
+        30°C<br/>
+      </div>
     },
     cloudServer: {
       name: "Mining Cluster",
-      cost: 5000,
+      cost: 20000,
       img: server,
-      hashes: 1000,
+      hashes: 200,
       mine: "BTC",
-      heatChange: 40
+      heatChange: 90,
+      overlay: <div className="my-tooltip">
+        <b>Cost: </b>
+        $20000<br/>
+        <b>MH/s: </b>
+        200<br/>
+        <b>Heats Up: </b>
+        90°C<br/>
+      </div>
     }
   },
   asic: {
     dash: {
       name: "Dash ASIC",
-      cost: 2000,
+      cost: 5000,
       img: asicDash,
-      hashes: 100,
+      hashes: 80,
       mine: "DASH",
-      heatChange: 1
+      heatChange: 35,
+      overlay: <div className="my-tooltip">
+        <b>Cost: </b>
+        $5000<br/>
+        <b>MH/s: </b>
+        80<br/>
+        <b>Heats Up: </b>
+        35°C<br/>
+      </div>
     },
     bitcoin: {
       name: "Bitcoin ASIC",
-      cost: 2000,
+      cost: 5000,
       img: asicBitcoin,
-      hashes: 100,
+      hashes: 80,
       mine: "BTC",
-      heatChange: 1
+      heatChange: 35,
+      overlay: <div className="my-tooltip">
+        <b>Cost: </b>
+        $5000<br/>
+        <b>MH/s: </b>
+        80<br/>
+        <b>Heats Up: </b>
+        35°C<br/>
+      </div>
     },
     litecoin: {
       name: "Litecoin ASIC",
-      cost: 2000,
+      cost: 5000,
       img: asicLitecoin,
-      hashes: 100,
+      hashes: 80,
       mine: "LTC",
-      heatChange: 1
+      heatChange: 35,
+      overlay: <div className="my-tooltip">
+        <b>Cost: </b>
+        $5000<br/>
+        <b>MH/s: </b>
+        80<br/>
+        <b>Heats Up: </b>
+        35°C<br/>
+      </div>
     },
     eth: {
       name: "Etherium ASIC",
-      cost: 2000,
+      cost: 5000,
       img: asicEth,
-      hashes: 100,
+      hashes: 80,
       mine: "ETH",
-      heatChange: 1
+      heatChange: 35,
+      overlay: <div className="my-tooltip">
+        <b>Cost: </b>
+        $5000<br/>
+        <b>MH/s: </b>
+        80<br/>
+        <b>Heats Up: </b>
+        35°C<br/>
+      </div>
     }
   },
   fan: {
@@ -98,13 +169,25 @@ export const Tech = {
       name: "Cooler",
       cost: 100,
       img: fan,
-      heatChange: -5
+      heatChange: -10,
+      overlay: <div className="my-tooltip">
+        <b>Cost: </b>
+        $100<br/>
+        <b>Heats Down: </b>
+        -10°C<br/>
+      </div>
     },
     industrial: {
-      name: "Industrial cooler",
+      name: "Upgraded cooler",
       cost: 500,
       img: cooler,
-      heatChange: -25
+      heatChange: -30,
+      overlay: <div className="my-tooltip">
+        <b>Cost: </b>
+        $500<br/>
+        <b>Heats Down: </b>
+        -30°C<br/>
+      </div>
     }
   },
   coin: {
