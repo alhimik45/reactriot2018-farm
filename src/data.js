@@ -130,6 +130,7 @@ export const Tech = {
 };
 
 export const ShopItems = Object.keys(Tech)
+    .filter(key => key !== 'coin')
     .flatMap(type =>
         Object.keys(Tech[type])
             .map(variant => ({
