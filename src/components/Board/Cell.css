@@ -4,6 +4,7 @@
     height: 100px;
     display: flex;
     flex-direction: row;
+    position: relative;
 }
 
 .cell-item img, .preview img {
@@ -16,7 +17,7 @@
     position: relative;
 }
 
-.cell-full-item::after {
+.cell-full-item::after, .preview::after {
     content: "";
     background: url("../../img/motherboard.svg");
     opacity: 0.5;
