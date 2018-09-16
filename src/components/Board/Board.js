@@ -41,7 +41,7 @@ class Board extends React.Component {
                         <Cell className="item"
                               item={item}
                               itemToBuy={props.itemToBuy}
-                              onClick={this.onCellClick(props, x, y, item)}
+                              onClick={() => this.onCellClick(props, x, y, item)}
                               onSwitchCurrency={props.sellActive
                                   ? e => props.sell({ x, y, mouseX: e.pageX, mouseY: e.pageY })
                                   : () => props.switchCurrency({ x, y })}
@@ -53,11 +53,14 @@ class Board extends React.Component {
     }
 
     onCellClick(props, x, y, item) {
-        debugger
+        if (item && item.type === 'coin') {
+            props.forcedSetItem({x, y, item: null});
+            props.updateScore({curr: item.coinType, delta: 1})
+        };
 
         return props.itemToBuy
             ? e => props.placeItem({x, y, mouseX: e.pageX, mouseY: e.pageY})
-            : props.sellActive && item != null
+            : props.sellActive && item != null && item.type !== 'coin'
                 ? e => props.sell({x, y, mouseX: e.pageX, mouseY: e.pageY})
                 : null;
     }

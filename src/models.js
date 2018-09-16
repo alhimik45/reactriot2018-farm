@@ -59,6 +59,7 @@ export const game = {
       state.currentItemToBuy = null;
     }),
     forcedSetItem: produce((state, {x, y, item}) => {
+      debugger
       state.grid[x][y] = item;
     }),
     tick: produce(state => {
@@ -96,12 +97,21 @@ export const game = {
       state.grid[y][x] = null
       state.sellActive = false
     }),
-    updateScore: produce((state, {curr, delta}) => {
-      debugger
-      state.currencies[curr] += delta;
+    increaseScore: produce((state, {curr, delta}) => {
+      const dict = {
+        'ethereum': 'ETH',
+        'litecoun': 'LTC',
+        'dash': 'DASH',
+        'bitcoin': 'BTC'
+      };
+
+      state.currencies[dict[curr]] += delta;
     }),
   },
   effects: (dispatch) => ({
+    async updateScore(payload) {
+      dispatch.game.increaseScore(payload);
+    },
     async buyItem (payload, state) {
       const itemCost = getItemCost(state.game.currentItemToBuy)
       if (state.game.currencies.$ < itemCost) {
