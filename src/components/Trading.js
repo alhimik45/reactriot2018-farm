@@ -49,19 +49,19 @@ class Trading extends Component {
       volume: 1,
       correlations: {
         BTC: {
-          maxCorrelation: 100,
+          maxCorrelation: 150,
           minCorrelation: 100
         },
         LTC: {
-          maxCorrelation: 100,
+          maxCorrelation: 150,
           minCorrelation: 100
         },
         ETH: {
-          maxCorrelation: 100,
+          maxCorrelation: 150,
           minCorrelation: 100
         },
         DASH: {
-          maxCorrelation: 100,
+          maxCorrelation: 150,
           minCorrelation: 100
         }
       },
@@ -123,7 +123,7 @@ class Trading extends Component {
         }
       }
       this.setState({correlations: newCorrelations});
-    }, 10000)
+    }, 8000)
   }
 
   handleOpenTradingModal () {
