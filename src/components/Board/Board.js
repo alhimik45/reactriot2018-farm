@@ -29,13 +29,14 @@ class Board extends React.Component {
     const img = Tech.coin[coinType.toLowerCase()].img[0];
 
     setTimeout(() => this.props.forcedSetItem({ x, y, item: null }), 5000);
-        this.props.forcedSetItem({x, y, item: {type: 'coin', coinType: coinType, img: img}});
+    this.props.forcedSetItem({ x, y, item: { type: 'coin', coinType: coinType, img: img } });
   }
 
   render () {
     const props = this.props;
 
-    return <div className="board" onClick={e => e.target.parentElement.className==="board" ? props.undoSelect() : null}>
+    return <div className="board"
+                onClick={e => e.target.parentElement.className === "board" ? props.undoSelect() : null}>
       <Row>
         {props.grid.flatMap((line, y) =>
           line.map((item, x) =>
@@ -43,7 +44,7 @@ class Board extends React.Component {
               <Cell className="item"
                     item={item}
                     itemToBuy={props.itemToBuy}
-                              onClick={e => this.onCellClick(props, x, y, item,e)}
+                    onClick={e => this.onCellClick(props, x, y, item, e)}
                     onSwitchCurrency={props.sellActive
                       ? e => props.sell({ x, y, mouseX: e.pageX, mouseY: e.pageY })
                       : () => props.switchCurrency({ x, y })}
@@ -53,20 +54,21 @@ class Board extends React.Component {
         )}
       </Row>
     </div>
+  }
+
+  onCellClick (props, x, y, item, e) {
+    if (item && item.type === 'coin') {
+      props.forcedSetItem({ x: y, y: x, item: null });
+      props.updateScore({ curr: item.coinType, delta: 5 })
+      props.upMessage({ curr: item.coinType, delta: 5, mouseX: e.pageX, mouseY: e.pageY })
     }
+    ;
 
-    onCellClick(props, x, y, item,e) {
-        if (item && item.type === 'coin') {
-            props.forcedSetItem({x: y, y: x, item: null});
-            props.updateScore({curr: item.coinType, delta: 5})
-            props.upMessage({curr: item.coinType, delta: 5, mouseX: e.pageX, mouseY: e.pageY})
-        };
-
-        return props.itemToBuy
-            ? props.placeItem({x, y, mouseX: e.pageX, mouseY: e.pageY})
-            : props.sellActive && item != null && item.type !== 'coin'
-                ? props.sell({x, y, mouseX: e.pageX, mouseY: e.pageY})
-                : null;
+    return props.itemToBuy
+      ? (item === null ? props.placeItem({ x, y, mouseX: e.pageX, mouseY: e.pageY }) : null)
+      : props.sellActive && item != null && item.type !== 'coin'
+        ? props.sell({ x, y, mouseX: e.pageX, mouseY: e.pageY })
+        : null;
   }
 }
 
