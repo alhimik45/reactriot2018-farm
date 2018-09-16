@@ -131,7 +131,7 @@ class Trading extends Component {
   }
 
   handleCloseTradingModal () {
-    this.setState({ showModal: false, volume: 0 });
+    this.setState({ showModal: false });
   }
 
   getRandomArbitrary (min, max) {
