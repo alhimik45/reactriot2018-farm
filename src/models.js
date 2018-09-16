@@ -1,5 +1,6 @@
 import { produce } from 'immer'
 import { Tech } from './data'
+import fan from './img/fan.svg'
 
 const getItemCost = ({ type, variant }) => Tech[type][variant].cost
 
@@ -25,11 +26,29 @@ export const game = {
     heatMax: 1000,
     currentItemToBuy: null,
     grid: [
-      [null, null, null, null, null],
-      [null, null, null, null, null],
-      [null, null, null, null, null],
-      [null, null, null, null, null],
-      [null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, {
+        type: 'fan',
+        name: "Cooler",
+        cost: 100,
+        img: fan,
+        heatChange: -50
+      }, null, null],
+      [null, null, {
+        type: 'fan',
+        name: "Cooler",
+        cost: 100,
+        img: fan,
+        heatChange: -50
+      }, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null],
+      [null, null, null, {
+        type: 'fan',
+        name: "Cooler",
+        cost: 100,
+        img: fan,
+        heatChange: -50
+      }, null, null, null, null, null],
     ]
   },
   reducers: {
