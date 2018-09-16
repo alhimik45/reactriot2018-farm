@@ -5,3 +5,7 @@
 .moving-object {
     display: inline-block;
 }
+
+.my-tooltip {
+    font-size: 12pt;
+}

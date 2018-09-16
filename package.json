@@ -10,6 +10,7 @@
     "glamor": "^2.20.40",
     "immer": "^1.6.0",
     "rc-progress": "^2.2.5",
+    "rc-tooltip": "^3.7.3",
     "react": "^16.5.1",
     "react-bootstrap": "^0.32.4",
     "react-chartjs-2": "^2.7.4",

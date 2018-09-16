@@ -41,7 +41,7 @@ class Board extends React.Component {
                         <Cell className="item"
                               item={item}
                               itemToBuy={props.itemToBuy}
-                              onClick={props.itemToBuy
+                              onClick={props.itemToBuy && item === null
                                   ? e => props.placeItem({ x, y, mouseX: e.pageX, mouseY: e.pageY })
                                   : props.sellActive && item !== null && item.type !== 'coin'
                                       ? e => props.sell({ x, y, mouseX: e.pageX, mouseY: e.pageY })

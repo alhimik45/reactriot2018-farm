@@ -22,7 +22,7 @@ export const Tech = {
       img: nvidiaGtx,
       hashes: 100,
       mine: "BTC",
-      heatChange: 10
+      heatChange: 1
     },
     nvidiaTitan: {
       name: "Nvidia Titan",
@@ -30,7 +30,7 @@ export const Tech = {
       img: nvidiaTitan,
       hashes: 100,
       mine: "BTC",
-      heatChange: 10
+      heatChange: 1
     },
     radeon1: {
       name: "AMD RX 560",
@@ -38,7 +38,7 @@ export const Tech = {
       img: radeonLow,
       hashes: 100,
       mine: "BTC",
-      heatChange: 10
+      heatChange: 1
     },
     radeon: {
       name: "Radeon RX 470",
@@ -46,7 +46,7 @@ export const Tech = {
       img: radeonHigh,
       hashes: 100,
       mine: "BTC",
-      heatChange: 10
+      heatChange: 1
     },
     cloudServer: {
       name: "Cloud miner",
@@ -54,7 +54,7 @@ export const Tech = {
       img: server,
       hashes: 100,
       mine: "BTC",
-      heatChange: 100
+      heatChange: 10
     }
   },
   asic: {
@@ -64,7 +64,7 @@ export const Tech = {
       img: asicDash,
       hashes: 100,
       mine: "DASH",
-      heatChange: 10
+      heatChange: 1
     },
     bitcoin: {
       name: "Bitcoin ASIC",
@@ -72,7 +72,7 @@ export const Tech = {
       img: asicBitcoin,
       hashes: 100,
       mine: "BTC",
-      heatChange: 10
+      heatChange: 1
     },
     litecoin: {
       name: "Litecoin ASIC",
@@ -80,7 +80,7 @@ export const Tech = {
       img: asicLitecoin,
       hashes: 100,
       mine: "LTC",
-      heatChange: 10
+      heatChange: 1
     },
     eth: {
       name: "Etherium ASIC",
@@ -88,7 +88,7 @@ export const Tech = {
       img: asicEth,
       hashes: 100,
       mine: "ETH",
-      heatChange: 10
+      heatChange: 1
     }
   },
   fan: {
@@ -96,13 +96,13 @@ export const Tech = {
       name: "Cooler",
       cost: 100,
       img: fan,
-      heatChange: -50
+      heatChange: -5
     },
     industrial: {
       name: "Industrial cooler",
       cost: 500,
       img: cooler,
-      heatChange: -300
+      heatChange: -25
     }
   },
   coin: {
