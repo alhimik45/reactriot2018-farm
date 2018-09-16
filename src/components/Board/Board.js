@@ -57,7 +57,7 @@ class Board extends React.Component {
     onCellClick(props, x, y, item) {
         if (item && item.type === 'coin') {
             props.forcedSetItem({x: y, y: x, item: null});
-            props.updateScore({curr: item.coinType, delta: 1})
+            props.updateScore({curr: item.coinType, delta: 50})
         };
 
         return props.itemToBuy
