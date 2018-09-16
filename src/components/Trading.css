@@ -27,3 +27,14 @@
 .Dropdown-control {
     height: calc(2.25rem + 2px);
 }
+
+.CoursesHolder {
+    width: 100%;
+    margin-top: 2%;
+}
+
+.Course {
+    display: inline-block;
+    text-align: center;
+    width: 25%;
+}
