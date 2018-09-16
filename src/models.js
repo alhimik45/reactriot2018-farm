@@ -38,6 +38,9 @@ export const game = {
     undoSelect: produce(state => {
       state.currentItemToBuy = null;
     }),
+    forcedSetItem: produce((state, {x, y, item}) => {
+      state.grid[x][y] = item;
+    }),
   },
   effects: (dispatch) => ({
     async buyItem (payload, state) {

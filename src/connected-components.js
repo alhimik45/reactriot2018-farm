@@ -31,8 +31,9 @@ export const MegahashValue = connect(({ game }) => ({
 export const BoardConnected = connect(({ game: { currentItemToBuy, grid } }) => ({
   itemToBuy: currentItemToBuy,
   grid: grid
-}), ({ game: { buyItem } }) => ({
-  placeItem: buyItem
+}), ({ game: { buyItem, forcedSetItem } }) => ({
+  placeItem: buyItem,
+  forcedSetItem: forcedSetItem,
 }))(Board)
 
 export const ShopConnected = connect(null, ({ game: { startBuyItem } }) => ({
