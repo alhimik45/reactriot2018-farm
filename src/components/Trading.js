@@ -206,9 +206,9 @@ class Trading extends Component {
 
   render () {
     return <div className="PickHolder">
-      <h3 className="ExchangeLabel">
+      <h4 className="ExchangeLabel">
         Stock exchange
-      </h3>
+      </h4>
       <input type="image" name="image" src={exchange} width="50" onClick={this.handleOpenTradingModal}/>
       <ReactModal
         isOpen={this.state.showModal}
