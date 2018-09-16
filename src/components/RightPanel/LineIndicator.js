@@ -13,7 +13,7 @@ const LineIndicator = props =>
         <Col md={10}>
           <Line percent={props.percents}
                 className="line-border"
-                strokeColor="#121212"
+                strokeColor={props.percents > 80 ? "#ee1111"  :"#121212"}
                 trailColor="#eeeeee"
                 strokeLinecap="butt"/>
         </Col>

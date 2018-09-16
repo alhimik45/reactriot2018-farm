@@ -1,19 +1,28 @@
 import { produce } from 'immer'
 import { Tech } from './data'
 
-const getItemCost = ({type, variant}) => Tech[type][variant].cost
+const getItemCost = ({ type, variant }) => Tech[type][variant].cost
+
+const asyncDelay = ms => new Promise(res => setTimeout(res, ms))
 
 export const game = {
   state: {
     currencies: {
       $: 100000,
-      BTC: 1
+      BTC: 1,
+      LTC: 1,
+      DASH: 1,
+      ETH: 1
     },
     exchangeRates: {
-      BTC: 6000
+      BTC: 6000,
+      LTC: 1,
+      DASH: 1,
+      ETH: 1
     },
     electricity: 12,
-    heat: 30,
+    heatCurrent: 30,
+    heatMax: 1000,
     currentItemToBuy: null,
     grid: [
       [null, null, null, null, null],
@@ -38,6 +47,26 @@ export const game = {
     undoSelect: produce(state => {
       state.currentItemToBuy = null;
     }),
+    tick: produce(state => {
+      for (const line of state.grid) {
+        for (const item of line) {
+          if (!item)
+            continue;
+          if (item.mine && item.hashes) {
+            state.currencies[item.mine] += item.hashes
+          }
+          if (item.heatChange) {
+            state.heatCurrent += item.heatChange
+          }
+        }
+      }
+      if (state.heatCurrent < 0) {
+        state.heatCurrent = 0
+      }
+      if (state.heatCurrent > state.heatMax) {
+        state.heatCurrent = state.heatMax
+      }
+    })
   },
   effects: (dispatch) => ({
     async buyItem (payload, state) {
@@ -57,6 +86,12 @@ export const game = {
         dispatch.fadeMessages.showMessage({ x: payload.mouseX, y: payload.mouseY, text: "No money" })
       } else {
         dispatch.game.selectToBuy(payload)
+      }
+    },
+    async startGame (payload, state) {
+      while (true) {
+        dispatch.game.tick(payload)
+        await asyncDelay(1500)
       }
     }
   })
