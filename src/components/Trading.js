@@ -47,8 +47,24 @@ class Trading extends Component {
       selected: { value: "BTC", label: "BTC" },
       dropdownOptions: ["BTC", "LTC", "ETH", "DASH"],
       volume: 1,
-      maxCorrelation: 100,
-      minCorrelation: 100
+      correlations: {
+        BTC: {
+          maxCorrelation: 100,
+          minCorrelation: 100
+        },
+        LTC: {
+          maxCorrelation: 100,
+          minCorrelation: 100
+        },
+        ETH: {
+          maxCorrelation: 100,
+          minCorrelation: 100
+        },
+        DASH: {
+          maxCorrelation: 100,
+          minCorrelation: 100
+        }
+      },
     };
 
     this.handleOpenTradingModal = this.handleOpenTradingModal.bind(this);
@@ -91,6 +107,23 @@ class Trading extends Component {
         this.refs.chart.chartInstance.update()
       }
     }, 2000);
+    setInterval(() => {
+      let newCorrelations = {};
+      for (let [key, value] of Object.entries(this.state.correlations)) {
+        if (Math.random() > 0.5) {
+          console.log(key + ' down')
+          let newMinCorrelation = this.getRandomArbitrary(value.minCorrelation - 50 < 0 ? 0 : value.minCorrelation - 50,  value.minCorrelation)
+          let newMaxCorrelation = this.getRandomArbitrary(newMinCorrelation,  value.maxCorrelation -  value.minCorrelation);
+          newCorrelations[key] = {minCorrelation: newMinCorrelation, maxCorrelation: newMaxCorrelation};
+        } else {
+          console.log(key + ' up')
+          let newMinCorrelation = this.getRandomArbitrary(value.minCorrelation + 50, value.maxCorrelation - value.minCorrelation)
+          let newMaxCorrelation = this.getRandomArbitrary(value.maxCorrelation, value.maxCorrelation + 50);
+          newCorrelations[key] = {minCorrelation: newMinCorrelation, maxCorrelation: newMaxCorrelation};
+        }
+      }
+      this.setState({correlations: newCorrelations});
+    }, 20000)
   }
 
   handleOpenTradingModal () {
@@ -112,8 +145,8 @@ class Trading extends Component {
     let value = currency[0].data[currency[0].data.length - 1];
 
     //by changing max(min)Correlation in state we can change the price
-    let maxVolatile = value + this.state.maxCorrelation;
-    let minVolatile = value - 10 < 0 ? 0.5 : value - this.state.minCorrelation;
+    let maxVolatile = value + this.state.correlations[label].maxCorrelation;
+    let minVolatile = value - 10 < 0 ? 0.5 : value - this.state.correlations[label].minCorrelation;
 
     let minPercentage = maxVolatile / value;
     let maxPercentage = minVolatile / value;
