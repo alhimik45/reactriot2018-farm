@@ -6,6 +6,7 @@ import eth from '../../img/ethereum.svg'
 import litecoin from '../../img/litecoin.svg'
 import Tooltip from 'rc-tooltip'
 import 'rc-tooltip/assets/bootstrap_white.css'
+import MinicoinGenerator from './MinicoinGenerator'
 
 const SwitchButton = props =>
   <img alt={props.currency} onClick={props.onClick} className="switchButton" src={{
@@ -16,17 +17,21 @@ const SwitchButton = props =>
   }[props.currency]}/>
 
 export const Gpu = props =>
-  <Tooltip placement="top" trigger={props.preview ? [] : ['hover']} mouseLeaveDelay={0} overlay={<div className="my-tooltip">
-    <b>Cost: </b>
-    ${props.cost}<br/>
-    <b>MH/s: </b>
-    {props.hashes}<br/>
-    <b>Heats Up: </b>
-    {props.heatChange}°C<br/>
+  <div>
+    <MinicoinGenerator coin={props.hashes / 500} currency={props.mine}/>
+    <Tooltip placement="top" trigger={props.preview ? [] : ['hover']} mouseLeaveDelay={0}
+             overlay={<div className="my-tooltip">
+               <b>Cost: </b>
+               ${props.cost}<br/>
+               <b>MH/s: </b>
+               {props.hashes}<br/>
+               <b>Heats Up: </b>
+               {props.heatChange}°C<br/>
+             </div>
+             }>
+      <div>
+        <SwitchButton currency={props.mine} onClick={props.onSwitchCurrency}/>
+        <img src={props.img} alt="gpu" className="item"/>
+      </div>
+    </Tooltip>
   </div>
-  }>
-    <div>
-      <SwitchButton currency={props.mine} onClick={props.onSwitchCurrency}/>
-      <img src={props.img} alt="gpu" className="item"/>
-    </div>
-  </Tooltip>

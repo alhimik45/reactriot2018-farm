@@ -52,9 +52,9 @@ export const Tech = {
       name: "Mining Cluster",
       cost: 5000,
       img: server,
-      hashes: 100,
+      hashes: 1000,
       mine: "BTC",
-      heatChange: 200
+      heatChange: 40
     }
   },
   asic: {

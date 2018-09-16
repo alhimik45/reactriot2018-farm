@@ -32,7 +32,7 @@ export const game = {
     },
     electricity: 12,
     heatCurrent: 30,
-    heatMax: 1000,
+    heatMax: 250,
     sellActive: false,
     currentItemToBuy: null,
     grid: [
@@ -67,9 +67,9 @@ export const game = {
         for (const item of line) {
           if (!item)
             continue;
-          if (item.mine && item.hashes) {
-            state.currencies[item.mine] += item.hashes
-          }
+          // if (item.mine && item.hashes) {
+          //   state.currencies[item.mine] += item.hashes
+          // }
           if (item.heatChange) {
             state.heatCurrent += item.heatChange
           }
@@ -127,6 +127,9 @@ export const game = {
       };
 
       state.currencies[dict[curr]] += delta;
+    }),
+    incCurrency: produce((state, { currency, value }) => {
+      state.currencies[currency] += value;
     }),
   },
   effects: (dispatch) => ({
@@ -194,6 +197,14 @@ export const game = {
       })
       dispatch.game.sell(payload)
       document.getElementsByTagName("body")[0].style.cursor = "";
+    },
+    async increaseCurrency (payload, state) {
+      dispatch.fadeMessages.showMessage({
+        x: payload.mouseX,
+        y: payload.mouseY,
+        text: `+ ${payload.value} ${payload.currency}`
+      })
+      dispatch.game.incCurrency(payload)
     },
   })
 }

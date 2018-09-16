@@ -16,6 +16,7 @@ import { calcHashs } from './functions'
 import Trading from './components/Trading'
 import CurrentScore from "./components/CurrentScore";
 import Content from "./components/Content";
+import MiniCoin from './components/Board/MiniCoin'
 
 export const ElectroLine = connect(({ game: { electricity } }) => ({
   percents: electricity,
@@ -51,9 +52,6 @@ export const DashValue = connect(({ game: { currencies } }) => ({
   value: currencies.DASH,
   icon: dash
 }), null)(NumericValue)
-
-export const CurrentScoreConnected = connect(({game: {coinType, delta}}) => ({
-}), null)(CurrentScore);
 
 export const MegahashValue = connect(({ game }) => ({
   value: calcHashs(game),
@@ -91,3 +89,7 @@ export const TradingConnected = connect(null, ({ game: { buyCurrency, sellCurren
 export const ContentConnected = connect(({game: updateScore}) => (
     {updateScore: updateScore}
 ), null)(Content);
+
+export const MiniCoinConnected = connect(null, ({ game: { increaseCurrency } }) => ({
+  increaseCurrency
+}))(MiniCoin)

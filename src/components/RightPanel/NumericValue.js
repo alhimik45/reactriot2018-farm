@@ -9,7 +9,7 @@ const NumericValue = props =>
         <Col md={2}>
           <img src={props.icon} alt={props.value} className="numeric-icon"/>
         </Col>
-        <Col md={10}>
+        <Col md={9}>
           <div className="numeric-value">
             {props.value}
           </div>

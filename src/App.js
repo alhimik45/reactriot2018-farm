@@ -3,6 +3,7 @@ import './App.css';
 import { ContentConnected, WelcomeConnected} from './connected-components'
 import FadeMessager from './FadeMessager'
 import { withAlert } from 'react-alert'
+import CurrentScore from './components/CurrentScore'
 
 class App extends Component {
 

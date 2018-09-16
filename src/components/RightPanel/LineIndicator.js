@@ -1,7 +1,7 @@
 import React from 'react'
 import { Line } from 'rc-progress';
 import './LineIndicator.css'
-import { Col, Grid, Row } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 
 const LineIndicator = props =>
   <div className="IndicatorHolder">
@@ -9,7 +9,7 @@ const LineIndicator = props =>
       <Row>
         <Col md={8}>
           <Row>
-          <Col md={10}>
+          <Col md={12}>
             <img src={props.icon} alt={props.percents} className="line-icon"/>
             <Line percent={props.percents}
                   className="indicator"
