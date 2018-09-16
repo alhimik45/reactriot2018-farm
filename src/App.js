@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { WelcomeConnected } from './connected-components'
 import FadeMessager from './FadeMessager'
-import { withAlert } from 'react-alert'
 import Content from './components/Content'
 
 class App extends Component {
@@ -16,4 +15,4 @@ class App extends Component {
   }
 }
 
-export default withAlert(App);
+export default App;
