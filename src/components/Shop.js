@@ -47,7 +47,7 @@ const Shop = props =>
           onClick={props.toggleSell}
           name="Sell item"
           cost="&nbsp;"
-          img={dollar}
+          img={[dollar]}
         />
       </Col>
     </Row>
