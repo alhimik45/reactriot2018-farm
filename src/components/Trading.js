@@ -218,15 +218,6 @@ class Trading extends Component {
         overlayClassName="Overlay"
       >
         <Line ref='chart' data={this.state}/>
-        <div className="CoursesHolder">
-          <p className="Course">BTC: {this.getPrice("BTC")}</p>
-          <p className="Course">LTC: {this.getPrice("LTC")}</p>
-          <p className="Course">ETH: {this.getPrice("ETH")}</p>
-          <p className="Course">DASH: {this.getPrice("DASH")}</p>
-        </div>
-        <Button className="ExitButton" onClick={this.handleCloseTradingModal}>
-          <img alt="exit" src={x}/>
-        </Button>
         <Form inline>
           <FormGroup className="TradingForm" controlId="formBasicText" validationState={this.getValidationState()}>
             <InputGroup className="TenRightMargin">
@@ -257,6 +248,16 @@ class Trading extends Component {
             </InputGroup>
           </FormGroup>
         </Form>
+        <div className="CoursesHolder">
+          <p className="Course">BTC: {this.getPrice("BTC")}</p>
+          <p className="Course">LTC: {this.getPrice("LTC")}</p>
+          <p className="Course">ETH: {this.getPrice("ETH")}</p>
+          <p className="Course">DASH: {this.getPrice("DASH")}</p>
+        </div>
+        <Button className="ExitButton" onClick={this.handleCloseTradingModal}>
+          <img alt="exit" src={x}/>
+        </Button>
+
       </ReactModal>
     </div>
   }
