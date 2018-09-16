@@ -21,14 +21,14 @@ export const Tech = {
       name: "NVIDIA GTX",
       cost: 1500,
       img: nvidiaGtx,
-      hashes: 26,
+      hashes: 30,
       mine: "BTC",
       heatChange: 27,
       overlay: <div className="my-tooltip">
         <b>Cost: </b>
         $1500<br/>
         <b>MH/s: </b>
-        26<br/>
+        30<br/>
         <b>Heats Up: </b>
         27°C<br/>
       </div>
@@ -37,16 +37,16 @@ export const Tech = {
       name: "NVIDIA Titan",
       cost: 3000,
       img: nvidiaTitan,
-      hashes: 82,
+      hashes: 50,
       mine: "BTC",
-      heatChange: 70,
+      heatChange: 50,
       overlay: <div className="my-tooltip">
         <b>Cost: </b>
-        $4500<br/>
+        $3000<br/>
         <b>MH/s: </b>
-        82<br/>
+        50<br/>
         <b>Heats Up: </b>
-        70°C<br/>
+        50°C<br/>
       </div>
     },
     radeon1: {
@@ -62,7 +62,7 @@ export const Tech = {
         <b>MH/s: </b>
         11<br/>
         <b>Heats Up: </b>
-        25C<br/>
+        25°C<br/>
       </div>
     },
     radeon: {
@@ -169,24 +169,24 @@ export const Tech = {
       name: "Cooler",
       cost: 100,
       img: fan,
-      heatChange: -10,
+      heatChange: -30,
       overlay: <div className="my-tooltip">
         <b>Cost: </b>
         $100<br/>
         <b>Heats Down: </b>
-        -10°C<br/>
+        -30°C<br/>
       </div>
     },
     industrial: {
       name: "Upgraded cooler",
       cost: 500,
       img: cooler,
-      heatChange: -30,
+      heatChange: -60,
       overlay: <div className="my-tooltip">
         <b>Cost: </b>
         $500<br/>
         <b>Heats Down: </b>
-        -30°C<br/>
+        -60°C<br/>
       </div>
     }
   },
