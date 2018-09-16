@@ -8,7 +8,7 @@ import { Tech } from "../../data";
 class Board extends React.Component {
   componentDidMount () {
     setTimeout(() => this.insertCoins(), 5000);
-    setInterval(this.insertCoins.bind(this), 30000);
+    setInterval(this.insertCoins.bind(this), 15000);
   }
 
   insertCoins () {

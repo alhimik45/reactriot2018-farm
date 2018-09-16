@@ -60,7 +60,7 @@ export const game = {
       state.grid[y][x] = { ...state.currentItemToBuy }
       state.grid[y][x].cost = Math.round(state.grid[y][x].cost / 2);
       state.currencies.$ -= Tech[state.currentItemToBuy.type][state.currentItemToBuy.variant].cost
-      // state.currentItemToBuy = null;
+      state.currentItemToBuy = null;
     }),
     undoSelect: produce(state => {
       state.currentItemToBuy = null;
@@ -124,7 +124,7 @@ export const game = {
     sell: produce((state, { x, y }) => {
       state.currencies.$ += state.grid[y][x].cost;
       state.grid[y][x] = null
-      // state.sellActive = false
+      state.sellActive = false
     }),
     increaseScore: produce((state, { curr, delta }) => {
       const dict = {
