@@ -32,6 +32,7 @@ export const game = {
     electricity: 12,
     heatCurrent: 30,
     heatMax: 1000,
+    sellActive: false,
     currentItemToBuy: null,
     grid: [
       [null, null, null, null, null, null, null, null, null],
@@ -82,7 +83,15 @@ export const game = {
     }),
     switchCurrency: produce((state, { x, y }) => {
       state.grid[y][x].mine = nextCurrency(state.grid[y][x].mine)
-    })
+    }),
+    setSell: produce((state, val) => {
+      state.sellActive = val
+    }),
+    sell: produce((state, { x, y }) => {
+      state.currencies.$ += state.grid[y][x].cost;
+      state.grid[y][x] = null
+      state.sellActive = false
+    }),
   },
   effects: (dispatch) => ({
     async buyItem (payload, state) {
@@ -97,6 +106,7 @@ export const game = {
       }
     },
     async startBuyItem (payload, state) {
+      if (state.game.sellActive) return;
       const itemCost = getItemCost(payload)
       if (state.game.currencies.$ < itemCost) {
         dispatch.fadeMessages.showMessage({ x: payload.mouseX, y: payload.mouseY, text: "No money" })
@@ -125,7 +135,25 @@ export const game = {
         dispatch.game.currencyChange([{ currency: payload.currency, value: -payload.volume },
           { currency: "$", value: +payload.price }])
       }
-    }
+    },
+    async toggleSell (payload, state) {
+      if (document.getElementsByTagName("body")[0].style.cursor === "") {
+        document.getElementsByTagName("body")[0].style.cursor = `url("/dollar.png"), pointer`;
+        dispatch.game.setSell(true)
+      }else {
+        document.getElementsByTagName("body")[0].style.cursor = "";
+        dispatch.game.setSell(false)
+      }
+    },
+    async sellItem (payload, state) {
+      dispatch.fadeMessages.showMessage({
+        x: payload.mouseX,
+        y: payload.mouseY,
+        text: `+$${state.game.grid[payload.y][payload.x].cost}`
+      })
+      dispatch.game.sell(payload)
+      document.getElementsByTagName("body")[0].style.cursor = "";
+    },
   })
 }
 

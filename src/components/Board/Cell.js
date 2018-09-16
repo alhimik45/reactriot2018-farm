@@ -12,7 +12,7 @@ let itemSelector = (item) => ({
 
 export const Cell = props =>
   props.item ?
-    <div className="cell-item cell-full-item">
+    <div className="cell-item cell-full-item" onClick={props.onClick}>
       {itemSelector(props.item)(props.onSwitchCurrency)}
     </div>
     : <div

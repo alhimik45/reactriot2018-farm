@@ -11,7 +11,7 @@ const ShopItem = props =>
       <img src={props.img} alt={props.name}/>
     </div>
     <div>
-      ${props.cost}
+      {props.cost}
     </div>
   </div>
 

@@ -55,16 +55,19 @@ export const MegahashValue = connect(({ game }) => ({
   icon: pick
 }), null)(NumericValue)
 
-export const BoardConnected = connect(({ game: { currentItemToBuy, grid } }) => ({
+export const BoardConnected = connect(({ game: { currentItemToBuy, grid, sellActive } }) => ({
+  grid,
+  sellActive,
   itemToBuy: currentItemToBuy,
-  grid: grid
-}), ({ game: { buyItem, switchCurrency } }) => ({
+}), ({ game: { buyItem, switchCurrency, sellItem } }) => ({
   switchCurrency,
-  placeItem: buyItem
+  placeItem: buyItem,
+  sell: sellItem
 }))(Board)
 
-export const ShopConnected = connect(null, ({ game: { startBuyItem } }) => ({
-  buy: startBuyItem
+export const ShopConnected = connect(null, ({ game: { startBuyItem, toggleSell } }) => ({
+  toggleSell,
+  buy: startBuyItem,
 }))(Shop)
 
 export const WelcomeConnected = connect(null, ({ game: { startGame } }) => ({

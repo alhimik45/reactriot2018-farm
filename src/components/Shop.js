@@ -2,6 +2,7 @@ import React from 'react';
 import "./Shop.css"
 import { Col, Row } from "react-bootstrap";
 import ShopItem from "./ShopItem"
+import dollar from '../img/dollar.svg'
 
 const Shop = props =>
   <div>
@@ -27,13 +28,22 @@ const Shop = props =>
               mouseY: e.pageY
             })}
             name={item.name}
-            cost={item.cost}
+            cost={`$${item.cost}`}
             img={item.img}
             type={item.type}
             variant={item.variant}
           />
         </Col>
       )}
+      <Col key="sell"
+           md={4}>
+        <ShopItem
+          onClick={props.toggleSell}
+          name="Sell item"
+          cost="&nbsp;"
+          img={dollar}
+        />
+      </Col>
     </Row>
   </div>
 
