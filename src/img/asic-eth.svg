@@ -5,9 +5,10 @@
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns="http://www.w3.org/2000/svg"
    version="1.1"
    id="Capa_1"
    x="0px"
@@ -398,4 +399,9 @@
        data-original="#428DFF"
        class="active-path"
        data-old_color="#9100FF"
-       id="path5400" /></g></g></svg>
+       id="path5400" /></g></g><circle
+   style="fill:#38454f"
+   cx="15.423728"
+   cy="46.983051"
+   r="3"
+   id="circle4287" /></svg>
