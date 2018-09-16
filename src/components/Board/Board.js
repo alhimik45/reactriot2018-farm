@@ -8,7 +8,7 @@ import { Tech } from "../../data";
 class Board extends React.Component {
   componentDidMount () {
     setTimeout(() => this.insertCoins(), 5000);
-    setInterval(this.insertCoins.bind(this), 20000);
+    setInterval(this.insertCoins.bind(this), 30000);
   }
 
   insertCoins () {
@@ -35,7 +35,7 @@ class Board extends React.Component {
   render () {
     const props = this.props;
 
-    return <div className="board">
+    return <div className="board" onClick={e => e.target.parentElement.className==="board" ? props.undoSelect() : null}>
       <Row>
         {props.grid.flatMap((line, y) =>
           line.map((item, x) =>

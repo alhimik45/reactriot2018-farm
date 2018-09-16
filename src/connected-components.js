@@ -60,13 +60,14 @@ export const BoardConnected = connect(({ game: { currentItemToBuy, grid, sellAct
   grid,
   sellActive,
   itemToBuy: currentItemToBuy,
-}), ({ game: { buyItem, switchCurrency, sellItem, forcedSetItem, updateScore, upMessage } }) => ({
+}), ({ game: { buyItem, switchCurrency, sellItem, forcedSetItem, updateScore, upMessage,undoSelect } }) => ({
   switchCurrency,
   placeItem: buyItem,
   sell: sellItem,
   forcedSetItem,
   updateScore,
-  upMessage
+  upMessage,
+  undoSelect,
 }))(Board)
 
 export const ShopConnected = connect(({ game: { sellActive, currentItemToBuy } }) => ({

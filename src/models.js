@@ -63,6 +63,8 @@ export const game = {
     }),
     undoSelect: produce(state => {
       state.currentItemToBuy = null;
+      state.sellActive = false;
+      document.getElementsByTagName("body")[0].style.cursor = "";
     }),
     forcedSetItem: produce((state, { x, y, item }) => {
       state.grid[x][y] = item;
