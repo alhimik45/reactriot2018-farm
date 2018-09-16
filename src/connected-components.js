@@ -7,14 +7,15 @@ import pick from './img/pick.svg'
 import NumericValue from './components/RightPanel/NumericValue'
 import Board from './components/Board/Board'
 import Shop from './components/Shop'
+import Welcome from './components/Welcome'
 
 export const ElectroLine = connect(({ game: { electricity } }) => ({
   percents: electricity,
   icon: electro
 }), null)(LineIndicator)
 
-export const HeatLine = connect(({ game: { heat } }) => ({
-  percents: heat,
+export const HeatLine = connect(({ game: { heatCurrent, heatMax } }) => ({
+  percents: heatCurrent / heatMax * 100,
   icon: fire
 }), null)(LineIndicator)
 
@@ -38,3 +39,7 @@ export const BoardConnected = connect(({ game: { currentItemToBuy, grid } }) => 
 export const ShopConnected = connect(null, ({ game: { startBuyItem } }) => ({
   buy: startBuyItem
 }))(Shop)
+
+export const WelcomeConnected = connect(null, ({ game: { startGame } }) => ({
+  startGame: startGame
+}))(Welcome)

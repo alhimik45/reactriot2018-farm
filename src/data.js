@@ -14,56 +14,84 @@ export const Tech = {
     nvidiaGtx: {
       name: "Nvidia GTX",
       cost: 1500,
-      img: nvidiaGtx
+      img: nvidiaGtx,
+      hashes: 100,
+      mine: "BTC",
+      heatChange: 10
     },
     nvidiaTitan: {
       name: "Nvidia Titan",
       cost: 4500,
-      img: nvidiaTitan
+      img: nvidiaTitan,
+      hashes: 100,
+      mine: "BTC",
+      heatChange: 10
     },
     radeon1: {
       name: "AMD RX 560",
       cost: 2800,
-      img: radeonLow
+      img: radeonLow,
+      hashes: 100,
+      mine: "BTC",
+      heatChange: 10
     },
     radeon: {
       name: "Radeon RX 470",
       cost: 3500,
-      img: radeonHigh
+      img: radeonHigh,
+      hashes: 100,
+      mine: "BTC",
+      heatChange: 10
     },
     cloudServer: {
       name: "Cloud miner",
       cost: 5000,
-      img: server
+      img: server,
+      hashes: 100,
+      mine: "BTC",
+      heatChange: 100
     }
   },
   asic: {
     dash: {
       name: "Dash ASIC",
       cost: 2000,
-      img: asicDash
+      img: asicDash,
+      hashes: 100,
+      mine: "DASH",
+      heatChange: 10
     },
     bitcoin: {
       name: "Bitcoin ASIC",
       cost: 2000,
-      img: asicBitcoin
+      img: asicBitcoin,
+      hashes: 100,
+      mine: "BTC",
+      heatChange: 10
     },
     litecoin: {
       name: "Litecoin ASIC",
       cost: 2000,
-      img: asicLitecoin
+      img: asicLitecoin,
+      hashes: 100,
+      mine: "LTC",
+      heatChange: 10
     },
     eth: {
       name: "Etherium ASIC",
       cost: 2000,
-      img: asicEth
+      img: asicEth,
+      hashes: 100,
+      mine: "ETH",
+      heatChange: 10
     }
   },
   fan: {
     common: {
       name: "Cooler",
       cost: 100,
-      img: fan
+      img: fan,
+      heatChange: -50
     }
   }
 }
@@ -72,9 +100,7 @@ export const ShopItems = Object.keys(Tech)
   .flatMap(type =>
     Object.keys(Tech[type])
       .map(variant => ({
+        ...Tech[type][variant],
         type,
-        variant,
-        name: Tech[type][variant].name,
-        cost: Tech[type][variant].cost,
-        img: Tech[type][variant].img
+        variant
       })))
