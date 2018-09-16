@@ -3,6 +3,7 @@ import './Board.css'
 import { Row } from 'react-bootstrap'
 import { Cell } from './Cell'
 import helpers from "./helpers";
+import {Tech} from "../../data";
 
 class Board extends React.Component {
     componentDidMount() {
@@ -23,8 +24,11 @@ class Board extends React.Component {
             y = rnd[1];
         }
 
+        const coinType = helpers.getRandomCoin();
+        const img = Tech.coin[coinType.toLowerCase()].img;
+
         setTimeout(() => this.props.forcedSetItem({x, y, item: null}), 5000);
-        this.props.forcedSetItem({x, y, item: {type: 'coin'}});
+        this.props.forcedSetItem({x, y, item: {type: 'coin', img: img}});
     }
 
     render() {
