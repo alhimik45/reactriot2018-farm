@@ -15,6 +15,7 @@
 
 .cell-full-item {
     position: relative;
+    background-color: rgba(20, 20, 250, 0.3);
 }
 
 .cell-full-item::after, .preview::after {
