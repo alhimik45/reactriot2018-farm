@@ -62,12 +62,13 @@ export const BoardConnected = connect(({ game: { currentItemToBuy, grid, sellAct
   grid,
   sellActive,
   itemToBuy: currentItemToBuy,
-}), ({ game: { buyItem, switchCurrency, sellItem, forcedSetItem, updateScore } }) => ({
+}), ({ game: { buyItem, switchCurrency, sellItem, forcedSetItem, updateScore, upMessage } }) => ({
   switchCurrency,
   placeItem: buyItem,
   sell: sellItem,
-  forcedSetItem: forcedSetItem,
-  updateScore: updateScore,
+  forcedSetItem,
+  updateScore,
+  upMessage
 }))(Board)
 
 export const ShopConnected = connect(({ game: { sellActive } }) => ({
@@ -85,10 +86,6 @@ export const TradingConnected = connect(null, ({ game: { buyCurrency, sellCurren
   buy: buyCurrency,
   sell: sellCurrency
 }))(Trading)
-
-export const ContentConnected = connect(({game: updateScore}) => (
-    {updateScore: updateScore}
-), null)(Content);
 
 export const MiniCoinConnected = connect(null, ({ game: { increaseCurrency } }) => ({
   increaseCurrency

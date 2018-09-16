@@ -118,7 +118,7 @@ export const game = {
       state.grid[y][x] = null
       state.sellActive = false
     }),
-    increaseScore: produce((state, {curr, delta}) => {
+    increaseScore: produce((state, { curr, delta }) => {
       const dict = {
         'ethereum': 'ETH',
         'litecoun': 'LTC',
@@ -133,7 +133,7 @@ export const game = {
     }),
   },
   effects: (dispatch) => ({
-    async updateScore(payload) {
+    async updateScore (payload) {
       dispatch.game.increaseScore(payload);
     },
     async buyItem (payload, state) {
@@ -203,6 +203,20 @@ export const game = {
         x: payload.mouseX,
         y: payload.mouseY,
         text: `+ ${payload.value} ${payload.currency}`
+      })
+      dispatch.game.incCurrency(payload)
+    },
+    async upMessage (payload, state) {
+      const dict = {
+        'ethereum': 'ETH',
+        'litecoun': 'LTC',
+        'dash': 'DASH',
+        'bitcoin': 'BTC'
+      };
+      dispatch.fadeMessages.showMessage({
+        x: payload.mouseX,
+        y: payload.mouseY,
+        text: `+ ${payload.delta} ${dict[payload.curr]}`
       })
       dispatch.game.incCurrency(payload)
     },

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { ContentConnected, WelcomeConnected} from './connected-components'
+import { WelcomeConnected } from './connected-components'
 import FadeMessager from './FadeMessager'
 import { withAlert } from 'react-alert'
-import CurrentScore from './components/CurrentScore'
+import Content from './components/Content'
 
 class App extends Component {
 
@@ -11,7 +11,7 @@ class App extends Component {
     return <div>
       <FadeMessager/>
       <WelcomeConnected/>
-      <ContentConnected/>
+      <Content/>
     </div>
   }
 }
