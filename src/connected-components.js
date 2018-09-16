@@ -64,10 +64,10 @@ export const BoardConnected = connect(({ game: { currentItemToBuy, grid, sellAct
   grid,
   sellActive,
   itemToBuy: currentItemToBuy,
-}), ({ game: { buyItem, switchCurrency, sellItem, forcedSetItem } }) => ({}), ({ game: { buyItem, switchCurrency, forcedSetItem } }) => ({
+}), ({ game: { buyItem, switchCurrency, sellItem, forcedSetItem } }) => ({
   switchCurrency,
   placeItem: buyItem,
-  sell: sellItem
+  sell: sellItem,
   forcedSetItem: forcedSetItem,
 }))(Board)
 

@@ -38,31 +38,19 @@ class Board extends React.Component {
                         <Cell className="item"
                               item={item}
                               itemToBuy={props.itemToBuy}
-                              onClick={props.itemToBuy ? e => this.placeItem(x, y, e) : null}
-                              onSwitchCurrency={() => props.switchCurrency({x,y})}
-                  : props.sellActive && item != null
-                    ? e => props.sell({ x, y, mouseX: e.pageX, mouseY: e.pageY })
-                    : null}
-                onSwitchCurrency={props.sellActive
-                  ? e => props.sell({ x, y, mouseX: e.pageX, mouseY: e.pageY })
-                  : () => props.switchCurrency({ x, y })}
-                key={`${x} ${y}`}/>
-        )}
-      </Row>
-    )}
-        </div>);
-    }
-
-    placeItem(x, y, e, args) {
-        const props = this.props;
-
-        return props.placeItem({
-            ...args,
-            x,
-            y,
-            mouseX: e.pageX,
-            mouseY: e.pageY
-        });
+                              onClick={props.itemToBuy
+                                  ? e => props.placeItem({ x, y, mouseX: e.pageX, mouseY: e.pageY })
+                                  : props.sellActive && item != null
+                                      ? e => props.sell({ x, y, mouseX: e.pageX, mouseY: e.pageY })
+                                      : null}
+                              onSwitchCurrency={props.sellActive
+                                  ? e => props.sell({ x, y, mouseX: e.pageX, mouseY: e.pageY })
+                                  : () => props.switchCurrency({ x, y })}
+                              key={`${x} ${y}`}/>
+                    )}
+                </Row>
+            )}
+            </div>)
     }
 }
 
