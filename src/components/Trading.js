@@ -46,7 +46,7 @@ class Trading extends Component {
       },
       selected: { value: "BTC", label: "BTC" },
       dropdownOptions: ["BTC", "LTC", "ETH", "DASH"],
-      volume: 0,
+      volume: 1,
       maxCorrelation: 100,
       minCorrelation: 100
     };
@@ -119,9 +119,9 @@ class Trading extends Component {
     let maxPercentage = minVolatile / value;
     let range = maxPercentage - minPercentage;
     let change = Math.random() * range + minPercentage;
-    value = Math.round(value * change * 100) / 100;
+    value = Math.round(value * change) ;
     if (value <= 0) {
-      value = this.getRandomArbitrary(0, 1);
+      value = 1;
     }
     return value;
   };
@@ -197,7 +197,7 @@ class Trading extends Component {
         <Form inline>
           <FormGroup className="TradingForm" controlId="formBasicText" validationState={this.getValidationState()}>
             <InputGroup className="TenRightMargin">
-              <FormControl type="text" onChange={(event) => {this.setState({ volume: event.target.value })}}/>
+              <FormControl type="text" value={this.state.volume} onChange={(event) => {this.setState({ volume: event.target.value })}}/>
               <Dropdown options={this.state.dropdownOptions}
                         onChange={(eventKey) => {this.setState({ selected: eventKey })}}
                         value={this.state.selected}

@@ -18,6 +18,12 @@
     background-color: rgba(20, 20, 250, 0.3);
 }
 
+.preview {
+    background-color: rgba(20, 20, 250, 0.3);
+    width: 90px;
+    height: 90px;
+}
+
 .cell-full-item::after, .preview::after {
     content: "";
     background: url("../../img/motherboard.svg");
@@ -43,7 +49,7 @@
 }
 
 .cell-hover:hover {
-    background: rgba(20, 250, 20, 0.2);
+    background: rgba(20, 250, 20, 0.4);
 }
 
 .cell-hover:hover .preview {
