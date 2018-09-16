@@ -6,7 +6,7 @@ import eth from '../../img/ethereum.svg'
 import litecoin from '../../img/litecoin.svg'
 
 const SwitchButton = props =>
-  <img onClick={props.onClick} className="switchButton" src={{
+  <img alt={props.currency} onClick={props.onClick} className="switchButton" src={{
     BTC: bitcoin,
     DASH: dash,
     ETH: eth,
