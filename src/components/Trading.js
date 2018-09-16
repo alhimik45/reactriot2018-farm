@@ -13,25 +13,25 @@ class Trading extends Component {
     this.state = {
       showModal: false,
       type: 'line',
-      labels: ['5', '10', '15', '20', '25', '30', '35'],
+      labels: ['1', '2', '3', '4', '5', '6', '7'],
       datasets: [{
         label: "BTC",
         data: [],
         fill: false,
-        borderColor: "purple",
-        backgroundColor: "purple"
+        borderColor: "orange",
+        backgroundColor: "orange"
       }, {
         label: "LTC",
         data: [],
         fill: false,
-        borderColor: "green",
-        backgroundColor: "green"
+        borderColor: "gray",
+        backgroundColor: "gray"
       }, {
         label: "ETH",
         data: [],
         fill: false,
-        borderColor: "red",
-        backgroundColor: "red"
+        borderColor: "purple",
+        backgroundColor: "purple"
       }, {
         label: "DASH",
         data: [],
@@ -63,7 +63,17 @@ class Trading extends Component {
         let newDataset = {
           ...set
         };
-        let newCourse = set.data.length === 0 ? _this.getRandomArbitrary(500, 750) : _this.getRandomArbitrary(set.data[set.data.length - 1] - 10, set.data[set.data.length - 1] + 10);
+        let minimalValue = set.data[set.data.length - 1] - 5;
+        let maximalValue = set.data[set.data.length - 1] + 5;
+        if (!isNaN(minimalValue) && !isNaN(maximalValue)) {
+          minimalValue = parseFloat(minimalValue.toFixed(3));
+          maximalValue = parseFloat(maximalValue.toFixed(3));
+        }
+        if (minimalValue < 0) {
+          minimalValue = _this.getRandomArbitrary(0, 1)
+        }
+        let newCourse = set.data.length === 0 ? _this.getRandomArbitrary(100, 150) : _this.getRandomArbitrary(minimalValue, maximalValue);
+        newCourse = parseFloat(newCourse.toFixed(3));
         if (newDataset.data.length === 7) {
           newDataset.data.shift();
           needScroll = true;
@@ -112,11 +122,32 @@ class Trading extends Component {
     if (result.length === 0) {
       return 0;
     } else {
-      return result[0].data[result[0].data.length - 3] * volume;
+      let returned = result[0].data[result[0].data.length - 1];
+      if (isNaN(returned)) {
+        return 0;
+      } else {
+        return returned * volume;
+      }
     }
   }
 
-  getValidationState() {
+  getPrice (currency) {
+    let result = this.state.datasets.filter(obj => {
+      return obj.label === currency
+    });
+    if (result.length === 0) {
+      return 0;
+    } else {
+      let returned = result[0].data[result[0].data.length - 1];
+      if (isNaN(returned)) {
+        return 0;
+      } else {
+        return returned;
+      }
+    }
+  }
+
+  getValidationState () {
     const value = this.state.volume;
     if (isNaN(value)) return 'error';
     if (parseInt(value, 10) < 0) return 'error';
@@ -134,6 +165,12 @@ class Trading extends Component {
         overlayClassName="Overlay"
       >
         <Line ref='chart' data={this.state}/>
+        <div className="CoursesHolder">
+          <p className="Course">BTC: {this.getPrice("BTC")}</p>
+          <p className="Course">LTC: {this.getPrice("LTC")}</p>
+          <p className="Course">ETH: {this.getPrice("ETH")}</p>
+          <p className="Course">DASH: {this.getPrice("DASH")}</p>
+        </div>
         <Button className="ExitButton" onClick={this.handleCloseTradingModal}>
           <img alt="exit" src={x}/>
         </Button>
