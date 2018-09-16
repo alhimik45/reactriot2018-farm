@@ -58,7 +58,7 @@ export const game = {
     undoSelect: produce(state => {
       state.currentItemToBuy = null;
     }),
-    forcedSetItem: produce((state, {x, y, item}) => {
+    forcedSetItem: produce((state, { x, y, item }) => {
       state.grid[x][y] = item;
     }),
     tick: produce(state => {
@@ -144,12 +144,14 @@ export const game = {
       if (document.getElementsByTagName("body")[0].style.cursor === "") {
         document.getElementsByTagName("body")[0].style.cursor = `url("/dollar.png"), pointer`;
         dispatch.game.setSell(true)
-      }else {
+      } else {
         document.getElementsByTagName("body")[0].style.cursor = "";
         dispatch.game.setSell(false)
       }
     },
-    async sellItem (payload, state) {
+    sellItem (payload, state) {
+      if (state.game.grid[payload.y][payload.x] == null)
+        return
       dispatch.fadeMessages.showMessage({
         x: payload.mouseX,
         y: payload.mouseY,
