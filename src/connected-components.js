@@ -8,6 +8,7 @@ import NumericValue from './components/RightPanel/NumericValue'
 import Board from './components/Board/Board'
 import Shop from './components/Shop'
 import Welcome from './components/Welcome'
+import { calcHashs } from './functions'
 
 export const ElectroLine = connect(({ game: { electricity } }) => ({
   percents: electricity,
@@ -25,7 +26,7 @@ export const DollarsValue = connect(({ game: { currencies: { $ } } }) => ({
 }), null)(NumericValue)
 
 export const MegahashValue = connect(({ game }) => ({
-  value: 777,
+  value: calcHashs(game),
   icon: pick
 }), null)(NumericValue)
 

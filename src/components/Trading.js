@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactModal from "react-modal";
-import {Line} from 'react-chartjs-2';
-import {DropdownButton, MenuItem, FormControl, FormGroup, InputGroup, Button, Form, ButtonToolbar, ButtonGroup} from "react-bootstrap";
+import { Line } from 'react-chartjs-2';
+import { Button, ButtonToolbar, Form, FormControl, FormGroup, InputGroup } from "react-bootstrap";
 import Dropdown from 'react-dropdown'
 import './Trading.css'
 import 'react-dropdown/style.css'
@@ -138,6 +138,7 @@ class Trading extends Component {
                         </InputGroup>
                     </FormGroup>
                 </Form>
+                <p></p>
             </ReactModal>;
         </div>
     }
