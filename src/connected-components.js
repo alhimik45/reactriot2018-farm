@@ -15,6 +15,7 @@ import Welcome from './components/Welcome'
 import { calcHashs } from './functions'
 import Trading from './components/Trading'
 import CurrentScore from "./components/CurrentScore";
+import MiniCoin from './components/Board/MiniCoin'
 
 export const ElectroLine = connect(({ game: { electricity } }) => ({
   percents: electricity,
@@ -86,3 +87,7 @@ export const TradingConnected = connect(null, ({ game: { buyCurrency, sellCurren
   buy: buyCurrency,
   sell: sellCurrency
 }))(Trading)
+
+export const MiniCoinConnected = connect(null, ({ game: { increaseCurrency } }) => ({
+  increaseCurrency
+}))(MiniCoin)

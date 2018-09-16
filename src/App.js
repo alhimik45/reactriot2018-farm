@@ -5,6 +5,7 @@ import RightPanel from './components/RightPanel/RightPanel'
 import { BoardConnected, CurrentScoreConnected, WelcomeConnected } from './connected-components'
 import FadeMessager from './FadeMessager'
 import { withAlert } from 'react-alert'
+import CurrentScore from './components/CurrentScore'
 
 class App extends Component {
 
@@ -13,7 +14,7 @@ class App extends Component {
       <FadeMessager/>
       <WelcomeConnected/>
       <div className="littleMargin">
-        <CurrentScoreConnected/>
+        <CurrentScore/>
         <Row>
           <Col md={8}>
             <BoardConnected/>
