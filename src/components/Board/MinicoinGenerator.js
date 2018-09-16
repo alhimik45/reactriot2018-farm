@@ -14,7 +14,7 @@ export default class MinicoinGenerator extends Component {
   }
 
   spawnCoins () {
-    this.coinsCollected += this.props.coin
+    this.coinsCollected += this.props.coin / this.props.difficulties[this.props.currency]
     if (this.coinsCollected > 1) {
       this.setState(produce(state => {
         while (this.coinsCollected > 1) {

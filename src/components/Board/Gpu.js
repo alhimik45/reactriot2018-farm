@@ -6,7 +6,7 @@ import eth from '../../img/ethereum.svg'
 import litecoin from '../../img/litecoin.svg'
 import Tooltip from 'rc-tooltip'
 import 'rc-tooltip/assets/bootstrap_white.css'
-import MinicoinGenerator from './MinicoinGenerator'
+import { MiniCoinGeneratorConnected } from '../../connected-components'
 
 const SwitchButton = props =>
   <img alt={props.currency} onClick={props.onClick} className="switchButton" src={{
@@ -18,7 +18,7 @@ const SwitchButton = props =>
 
 export const Gpu = props =>
   <div>
-    {props.preview ? null : <MinicoinGenerator coin={props.hashes / 500} currency={props.mine}/>}
+    {props.preview ? null : <MiniCoinGeneratorConnected coin={props.hashes} currency={props.mine}/>}
     <Tooltip placement="top" trigger={props.preview ? [] : ['hover']} mouseLeaveDelay={0}
              overlay={<div className="my-tooltip">
                <b>Cost: </b>

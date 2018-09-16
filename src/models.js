@@ -24,13 +24,18 @@ const nextCurrency = mine => ({
 export const game = {
   state: {
     currencies: {
-      $: 6077700,
-      BTC: 1,
-      LTC: 1,
-      DASH: 1,
-      ETH: 1
+      $: 607770,
+      BTC: 0,
+      LTC: 0,
+      DASH: 0,
+      ETH: 0
     },
-    electricity: 12,
+    difficulties: {
+      BTC: 400,
+      LTC: 400,
+      DASH: 400,
+      ETH: 400
+    },
     heatCurrent: 30,
     heatMax: 250,
     sellActive: false,
@@ -130,6 +135,7 @@ export const game = {
     }),
     incCurrency: produce((state, { currency, value }) => {
       state.currencies[currency] += value;
+      state.difficulties[currency] += 5;
     }),
   },
   effects: (dispatch) => ({

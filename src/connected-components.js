@@ -14,14 +14,8 @@ import Shop from './components/Shop'
 import Welcome from './components/Welcome'
 import { calcHashs } from './functions'
 import Trading from './components/Trading'
-import CurrentScore from "./components/CurrentScore";
-import Content from "./components/Content";
 import MiniCoin from './components/Board/MiniCoin'
-
-export const ElectroLine = connect(({ game: { electricity } }) => ({
-  percents: electricity,
-  icon: electro
-}), null)(LineIndicator)
+import MinicoinGenerator from './components/Board/MinicoinGenerator'
 
 export const HeatLine = connect(({ game: { heatCurrent, heatMax } }) => ({
   percents: heatCurrent / heatMax * 100,
@@ -33,23 +27,27 @@ export const DollarsValue = connect(({ game: { currencies } }) => ({
   icon: dollar
 }), null)(NumericValue)
 
-export const BitcoinValue = connect(({ game: { currencies } }) => ({
+export const BitcoinValue = connect(({ game: { currencies, difficulties } }) => ({
   value: currencies.BTC,
+  diff: difficulties.BTC,
   icon: bitcoin
 }), null)(NumericValue)
 
-export const LitecoinValue = connect(({ game: { currencies } }) => ({
+export const LitecoinValue = connect(({ game: { currencies, difficulties } }) => ({
   value: currencies.LTC,
+  diff: difficulties.LTC,
   icon: litecoin
 }), null)(NumericValue)
 
-export const EthValue = connect(({ game: { currencies } }) => ({
+export const EthValue = connect(({ game: { currencies, difficulties } }) => ({
   value: currencies.ETH,
+  diff: difficulties.ETH,
   icon: eth
 }), null)(NumericValue)
 
-export const DashValue = connect(({ game: { currencies } }) => ({
+export const DashValue = connect(({ game: { currencies, difficulties } }) => ({
   value: currencies.DASH,
+  diff: difficulties.DASH,
   icon: dash
 }), null)(NumericValue)
 
@@ -90,3 +88,7 @@ export const TradingConnected = connect(null, ({ game: { buyCurrency, sellCurren
 export const MiniCoinConnected = connect(null, ({ game: { increaseCurrency } }) => ({
   increaseCurrency
 }))(MiniCoin)
+
+export const MiniCoinGeneratorConnected = connect(({ game: { difficulties } }) => ({
+  difficulties,
+}), null)(MinicoinGenerator)
