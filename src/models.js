@@ -12,6 +12,14 @@ const fanItem = {
   img: fan,
   heatChange: -50
 }
+
+const nextCurrency = mine => ({
+  BTC: 'LTC',
+  LTC: 'ETH',
+  ETH: 'DASH',
+  DASH: 'BTC'
+}[mine])
+
 export const game = {
   state: {
     currencies: {
@@ -71,6 +79,9 @@ export const game = {
     currencyChange: produce((state, changes) => {
       for (const change of changes)
         state.currencies[change.currency] += change.value
+    }),
+    switchCurrency: produce((state, { x, y }) => {
+      state.grid[y][x].mine = nextCurrency(state.grid[y][x].mine)
     })
   },
   effects: (dispatch) => ({
