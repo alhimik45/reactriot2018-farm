@@ -18,7 +18,7 @@ import React from 'react'
 export const Tech = {
   universal: {
     nvidiaGtx: {
-      name: "NVIDIA GTX 1050",
+      name: "NVIDIA GTX",
       cost: 1500,
       img: nvidiaGtx,
       hashes: 26,
@@ -50,7 +50,7 @@ export const Tech = {
       </div>
     },
     radeon1: {
-      name: "AMD RX 560",
+      name: "AMD RX",
       cost: 500,
       img: radeonLow,
       hashes: 11,
@@ -66,7 +66,7 @@ export const Tech = {
       </div>
     },
     radeon: {
-      name: "Radeon RX 580",
+      name: "Radeon RX",
       cost: 1000,
       img: radeonHigh,
       hashes: 22,
