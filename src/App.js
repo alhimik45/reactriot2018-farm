@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BoardConnected, CurrentScoreConnected, WelcomeConnected } from './connected-components'
+import { ContentConnected, WelcomeConnected} from './connected-components'
 import FadeMessager from './FadeMessager'
 import { withAlert } from 'react-alert'
 
