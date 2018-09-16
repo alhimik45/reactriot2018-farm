@@ -24,17 +24,17 @@ const nextCurrency = mine => ({
 export const game = {
   state: {
     currencies: {
-      $: 7000,
+      $: 700,
       BTC: 0,
       LTC: 0,
       DASH: 0,
       ETH: 0
     },
     difficulties: {
-      BTC: 400,
-      LTC: 400,
-      DASH: 400,
-      ETH: 400
+      BTC: 40,
+      LTC: 40,
+      DASH: 40,
+      ETH: 40
     },
     heatCurrent: 0,
     heatMax: 250,
