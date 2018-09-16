@@ -149,7 +149,7 @@ export const game = {
         dispatch.game.setSell(false)
       }
     },
-    sellItem (payload, state) {
+    async sellItem (payload, state) {
       if (state.game.grid[payload.y][payload.x] == null)
         return
       dispatch.fadeMessages.showMessage({
