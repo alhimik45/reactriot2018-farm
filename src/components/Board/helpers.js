@@ -1,3 +1,5 @@
+import {Tech} from "../../data";
+
 const getRandomCell = (grid) => {
     const width = grid.length;
     const height = grid[0].length;
@@ -8,4 +10,10 @@ const getRandomCell = (grid) => {
     return [rndX, rndY]
 };
 
-module.exports = {getRandomCell};
+const getRandomCoin = () => {
+    const keys = Object.keys(Tech.coin);
+    const rnd = Math.floor(Math.random() * (keys.length));
+    return keys[rnd];
+};
+
+export default {getRandomCell, getRandomCoin};
