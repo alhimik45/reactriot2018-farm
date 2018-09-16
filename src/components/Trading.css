@@ -38,3 +38,12 @@
     text-align: center;
     width: 25%;
 }
+
+.PickHolder {
+    text-align: center;
+}
+
+.ExchangeLabel {
+    display: inline-block;
+    margin: 5%;
+}

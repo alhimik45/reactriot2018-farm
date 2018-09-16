@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Col, Row } from 'react-bootstrap'
 import RightPanel from './components/RightPanel/RightPanel'
-import { BoardConnected, CurrentScoreConnected, TradingConnected, WelcomeConnected } from './connected-components'
+import { BoardConnected, CurrentScoreConnected, WelcomeConnected } from './connected-components'
 import FadeMessager from './FadeMessager'
 import { withAlert } from 'react-alert'
 
@@ -12,7 +12,6 @@ class App extends Component {
     return <div>
       <FadeMessager/>
       <WelcomeConnected/>
-      <TradingConnected/>
       <div className="littleMargin">
         <CurrentScoreConnected/>
         <Row>

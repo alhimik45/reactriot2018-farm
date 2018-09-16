@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import ReactModal from "react-modal";
 import { Line } from 'react-chartjs-2';
-import { Button, ButtonToolbar, Form, FormControl, FormGroup, InputGroup } from "react-bootstrap";
+import {Button, ButtonToolbar, Col, Form, FormControl, FormGroup, InputGroup} from "react-bootstrap";
 import Dropdown from 'react-dropdown'
 import './Trading.css'
 import 'react-dropdown/style.css'
 import x from '../img/x.svg'
+import exchange from '../img/exchange.svg'
 
 class Trading extends Component {
   constructor (props) {
@@ -171,8 +172,11 @@ class Trading extends Component {
   }
 
   render () {
-    return <div>
-      <button onClick={this.handleOpenTradingModal}>Trigger Modal</button>
+    return <div className="PickHolder">
+      <h3 className="ExchangeLabel">
+        Stock exchange
+      </h3>
+      <input type="image" name="image" src={exchange} width="50" onClick={this.handleOpenTradingModal}/>
       <ReactModal
         isOpen={this.state.showModal}
         contentLabel="onRequestClose Example"
@@ -220,8 +224,7 @@ class Trading extends Component {
             </InputGroup>
           </FormGroup>
         </Form>
-        <p></p>
-      </ReactModal>;
+      </ReactModal>
     </div>
   }
 }

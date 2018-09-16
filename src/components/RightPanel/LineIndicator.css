@@ -1,8 +1,15 @@
-.line-border {
+.indicator {
     border: 2px solid #121212;
+    width: 90%;
 }
 
 .line-icon {
     height: 20px;
     float: left;
+    margin-right: 10px;
+    margin-left: 30px;
+}
+
+.IndicatorHolder {
+    width: 100%;
 }

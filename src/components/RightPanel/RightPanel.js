@@ -1,11 +1,11 @@
 import React from 'react';
-import { ElectroLine, HeatLine, ShopConnected } from '../../connected-components'
+import { HeatLine, ShopConnected, TradingConnected } from '../../connected-components'
 import { ShopItems } from '../../data'
 
 const RightPanel = props =>
   <div>
-    <ElectroLine/>
-    <HeatLine/>
+
+    <TradingConnected/>
     <div style={{ borderTop: '1px black solid' }}>
       <ShopConnected items={ShopItems}/>
     </div>
