@@ -46,6 +46,7 @@ export const game = {
       [null, null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null],
     ]
   },
   reducers: {
