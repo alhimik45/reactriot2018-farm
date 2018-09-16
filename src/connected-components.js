@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
 import LineIndicator from './components/RightPanel/LineIndicator'
-import electro from './img/electro.svg'
 import fire from './img/fire.svg'
 import dollar from './img/dollar.svg'
 import bitcoin from './img/bitcoin.svg'
@@ -52,6 +51,7 @@ export const DashValue = connect(({ game: { currencies, difficulties } }) => ({
 }), null)(NumericValue)
 
 export const MegahashValue = connect(({ game }) => ({
+  blink: game.heatCurrent > game.heatMax * 0.8,
   value: calcHashs(game),
   icon: pick
 }), null)(NumericValue)

@@ -3,8 +3,8 @@ import './NumericValue.css'
 import { Col, Grid, Row } from 'react-bootstrap'
 
 const NumericValue = props =>
-  <div className="numeric-container">
-    <Grid>
+  <div className="numeric-container" style={props.blink ? {borderWidth: '3px', borderColor: 'red'} : null}>
+    <Grid className={props.blink ? "blink_me" : ""}>
       <Row>
         <Col md={2}>
           <img src={props.icon} alt={props.value} className="numeric-icon"/>
