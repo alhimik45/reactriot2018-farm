@@ -135,8 +135,21 @@ class Trading extends Component {
             </InputGroup>
             <InputGroup>
               <ButtonToolbar>
-                <Button className="TenRightMargin">Buy for {this.getSelectedPrice()} USD</Button>
-                <Button>Sell for {this.getSelectedPrice()} USD</Button>
+                <Button onClick={e => this.props.buy({
+                  currency: this.state.selected.value,
+                  volume: this.state.volume,
+                  price: this.getSelectedPrice(),
+                  mouseX: e.pageX,
+                  mouseY: e.pageY
+                })} className="TenRightMargin">Buy for {this.getSelectedPrice()} USD</Button>
+                <Button
+                  onClick={e => this.props.sell({
+                    currency: this.state.selected.value,
+                    volume: this.state.volume,
+                    price: this.getSelectedPrice(),
+                    mouseX: e.pageX,
+                    mouseY: e.pageY
+                  })}>Sell for {this.getSelectedPrice()} USD</Button>
               </ButtonToolbar>
             </InputGroup>
           </FormGroup>

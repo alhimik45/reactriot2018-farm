@@ -13,6 +13,7 @@ import Board from './components/Board/Board'
 import Shop from './components/Shop'
 import Welcome from './components/Welcome'
 import { calcHashs } from './functions'
+import Trading from './components/Trading'
 
 export const ElectroLine = connect(({ game: { electricity } }) => ({
   percents: electricity,
@@ -68,3 +69,8 @@ export const ShopConnected = connect(null, ({ game: { startBuyItem } }) => ({
 export const WelcomeConnected = connect(null, ({ game: { startGame } }) => ({
   startGame: startGame
 }))(Welcome)
+
+export const TradingConnected = connect(null, ({ game: { buyCurrency, sellCurrency } }) => ({
+  buy: buyCurrency,
+  sell: sellCurrency
+}))(Trading)

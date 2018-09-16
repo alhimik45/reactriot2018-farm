@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Col, Row } from 'react-bootstrap'
 import RightPanel from './components/RightPanel/RightPanel'
-import Trading from './components/Trading'
-import { BoardConnected, WelcomeConnected } from './connected-components'
+import { BoardConnected, TradingConnected, WelcomeConnected } from './connected-components'
 import FadeMessager from './FadeMessager'
 
 export default class App extends Component {
@@ -15,7 +14,7 @@ export default class App extends Component {
                 <WelcomeConnected/>
             </div>
             <div>
-                <Trading/>
+                <TradingConnected/>
             </div>
             <div className="littleMargin">
                 <Row>

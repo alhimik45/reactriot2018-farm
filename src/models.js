@@ -6,6 +6,12 @@ const getItemCost = ({ type, variant }) => Tech[type][variant].cost
 
 const asyncDelay = ms => new Promise(res => setTimeout(res, ms))
 
+const fanItem = {
+  type: 'fan',
+  cost: 100,
+  img: fan,
+  heatChange: -50
+}
 export const game = {
   state: {
     currencies: {
@@ -21,28 +27,10 @@ export const game = {
     currentItemToBuy: null,
     grid: [
       [null, null, null, null, null, null, null, null, null],
-      [null, null, null, null, null, null, {
-        type: 'fan',
-        name: "Cooler",
-        cost: 100,
-        img: fan,
-        heatChange: -50
-      }, null, null],
-      [null, null, {
-        type: 'fan',
-        name: "Cooler",
-        cost: 100,
-        img: fan,
-        heatChange: -50
-      }, null, null, null, null, null, null],
+      [null, null, null, null, null, null, { ...fanItem }, null, null],
+      [null, null, { ...fanItem }, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null, null],
-      [null, null, null, {
-        type: 'fan',
-        name: "Cooler",
-        cost: 100,
-        img: fan,
-        heatChange: -50
-      }, null, null, null, null, null],
+      [null, null, null, { ...fanItem }, null, null, null, null, null],
     ]
   },
   reducers: {
@@ -79,6 +67,10 @@ export const game = {
       if (state.heatCurrent > state.heatMax) {
         state.heatCurrent = state.heatMax
       }
+    }),
+    currencyChange: produce((state, changes) => {
+      for (const change of changes)
+        state.currencies[change.currency] += change.value
     })
   },
   effects: (dispatch) => ({
@@ -105,6 +97,22 @@ export const game = {
       while (true) {
         dispatch.game.tick(payload)
         await asyncDelay(1500)
+      }
+    },
+    async buyCurrency (payload, state) {
+      if (state.game.currencies.$ < payload.price) {
+        dispatch.fadeMessages.showMessage({ x: payload.mouseX, y: payload.mouseY, text: "No money" })
+      } else {
+        dispatch.game.currencyChange([{ currency: payload.currency, value: +payload.volume },
+          { currency: "$", value: -payload.price }])
+      }
+    },
+    async sellCurrency (payload, state) {
+      if (state.game.currencies[payload.currency] < payload.volume) {
+        dispatch.fadeMessages.showMessage({ x: payload.mouseX, y: payload.mouseY, text: "No money" })
+      } else {
+        dispatch.game.currencyChange([{ currency: payload.currency, value: -payload.volume },
+          { currency: "$", value: +payload.price }])
       }
     }
   })
